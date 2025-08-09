@@ -1,7 +1,0 @@
-{
-  "programming_languages": ["C / C++", "Python", "JavaScript"],
-  "embedded": ["Arduino", "ESP32", "Sensors"],
-  "web_tools": ["React", "Tailwind", "Netlify"],
-  "ai_vision": ["OpenCV", "Kociemba's solver"],
-  "soft_skills": ["Documentation", "Problem solving"]
-}
