@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | Nafis Islam Nitol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { bg: '#0b0f17', card: '#111620', border: '#1f2937' },
+                        neon: { cyan: '#06b6d4', purple: '#a855f7', green: '#22c55e' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    boxShadow: { 'glass': '0 4px 30px rgba(0, 0, 0, 0.1)' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased overflow-x-hidden bg-[#0b0f17] text-gray-200">
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 shadow-lg" id="navbar">
+        <div class="glass-panel border-b border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <a href="index.html" class="font-mono font-bold text-xl tracking-tighter text-neon-cyan hover:text-white transition-colors">
+                        &lt;NITOL/&gt;
+                    </a>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-8">
+                            <a href="index.html#home" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="index.html#about" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="projects.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                            <a href="certifications.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
+                            <a href="index.html#services" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                            <a href="index.html#contact" class="px-4 py-2 border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all text-sm font-medium shadow-neon-cyan">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-12 text-center px-4">
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Certifications & Achievements</h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+            Professional credentials and technical milestones.
+        </p>
+    </section>
+
+    <section class="pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto">
+            
+            <div class="space-y-8 border-l-2 border-gray-800 ml-3 pl-8 relative">
+                
+                <div class="relative reveal active">
+                    <span class="absolute -left-[41px] top-6 bg-dark-bg border-2 border-neon-cyan w-6 h-6 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-neon-cyan rounded-full animate-pulse"></div>
+                    </span>
+                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-cyan/50 transition-colors group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-neon-cyan transition-colors">Advanced IoT System Design</h3>
+                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2024</span>
+                        </div>
+                        <div class="text-neon-cyan text-sm mb-3">Coursera / University of California</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Comprehensive course on designing IoT architecture, sensor integration, and cloud data processing using ESP32.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors">
+                            <i data-lucide="external-link" class="w-3 h-3 mr-1"></i> Verify Credential
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <span class="absolute -left-[41px] top-6 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
+                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-purple/50 transition-colors group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-neon-purple transition-colors">C++ Programming for Robotics</h3>
+                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2023</span>
+                        </div>
+                        <div class="text-neon-purple text-sm mb-3">Udemy Academy</div>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Focused on memory management, pointers, and object-oriented programming specifically for embedded systems.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors">
+                            <i data-lucide="external-link" class="w-3 h-3 mr-1"></i> Verify Credential
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <span class="absolute -left-[41px] top-6 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
+                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-colors group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-white group-hover:text-neon-green transition-colors">Arduino Fundamentals</h3>
+                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2022</span>
+                        </div>
+                        <div class="text-neon-green text-sm mb-3">Arduino Official</div>
+                        <p class="text-gray-400 text-sm">
+                            Mastered digital I/O, PWM, and serial communication protocols.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-6 bg-dark-bg border-t border-gray-800 text-center">
+        <p class="text-gray-600 text-sm">© <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
