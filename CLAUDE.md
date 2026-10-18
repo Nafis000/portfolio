@@ -6,16 +6,23 @@ The build brief is `website-arcitecture.md`, a staged plan for Next.js and Supab
 
 ## Status
 
-The build is staged. **Stages 1–4 are done:**
-- the design system and every public page (home, projects, education, experience, certifications, activities), all read from Supabase
+The build is staged. **Stages 1–5 are done:**
+- the design system and every public page, all read from Supabase
 - the Supabase schema, RLS, storage and admin auth
-- the working contact form, SEO (metadata, sitemap, robots, OG image, Person JSON-LD)
-- project drawings for every build, a labelled vision-pipeline illustration on /projects, and certificate viewer and verify buttons
+- the contact form, SEO, project drawings and the vision illustration
+- the CMS at `/admin`: every content type, media library and messages
 
 Not built yet:
-- the CMS editing UI (Stage 5); after a CMS write, call `revalidateTag`/`updateTag` with `"content"` or the section's tag
-- media in Storage: images and the CV still ship from `/public` (see the `PROJECT_IMAGES` shortcut in `lib/content/index.ts`)
-- 3D scenes and visual refinement (Stage 6), and tests, CI and deploy (Stage 7)
+- 3D scenes (Stage 6), and automated tests and CI (Stage 7)
+- the draft preview mode (the brief asks for one)
+
+Deployment: Vercel from GitHub `main`; see README.md.
+
+## CMS
+
+- `lib/admin/modules.ts` describes every editable type once (its fields, tags, ordering and publishing). Lists, forms, validation (`lib/admin/validate.ts`) and saves (`app/admin/cms-actions.ts`) are all generic over it. To add a field, add it here.
+- Every action calls `requireAdmin()`, writes with the admin's session (RLS enforced), then `updateTag()` for the module's tags, so the public site updates on the next request.
+- Reordering goes through `public.reorder_rows` (one atomic statement). Media goes from the browser straight to Storage, then `registerMedia` records it.
 
 ## Database (Supabase)
 

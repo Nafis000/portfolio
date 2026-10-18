@@ -36,8 +36,7 @@ function must<T>(what: string, res: { data: T | null; error: unknown }): T {
   return res.data;
 }
 
-// shortcut: media still ships from /public because Storage uploads need the admin CMS (Stage 5);
-// move these into media_assets + project_media then.
+// Fallbacks until replacements are uploaded in the CMS media library and chosen on the record.
 const PROJECT_IMAGES: Record<string, Project["image"]> = {
   "line-following-robot": {
     src: "/images/projects/line-follower.webp",
@@ -54,9 +53,29 @@ const CV_URL = "/cv/nafis-islam-nitol-cv.pdf";
 
 const opt = (v: string | null) => v ?? undefined;
 
-// Public URL of a file in the public "media" bucket.
+type Asset = { id: number; path: string; mime_type: string; alt: string; width: number | null; height: number | null };
+const publicUrl = (path: string) =>
+  `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media/${path.split("/").map(encodeURIComponent).join("/")}`;
+
+async function assetsById(ids: (number | null)[]): Promise<Map<number, Asset>> {
+  const wanted = [...new Set(ids.filter((id): id is number => id !== null))];
+  if (!wanted.length) return new Map();
+  const res = await db().from("media_assets").select("id,path,mime_type,alt,width,height").in("id", wanted);
+  if (res.error) console.error("[content] media", res.error); // media is optional: fall back rather than fail
+  return new Map((res.data ?? []).map((a) => [a.id, a]));
+}
+
+// Shape an asset for next/image; dimensions fall back to a 3:2 box when unknown.
+const toImage = (a: Asset, fallbackAlt: string) => ({
+  src: publicUrl(a.path),
+  alt: a.alt || fallbackAlt,
+  width: a.width ?? 1200,
+  height: a.height ?? 800,
+});
+
+// A certificate file in the public "media" bucket.
 const toFile = (m: { path: string; mime_type: string; alt: string }, title: string) => ({
-  url: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media/${m.path.split("/").map(encodeURIComponent).join("/")}`,
+  url: publicUrl(m.path),
   mimeType: m.mime_type,
   alt: m.alt || `Certificate: ${title}`,
 });
@@ -70,6 +89,9 @@ export async function getProfile(): Promise<Profile> {
     db().from("social_links").select("label,url").order("sort_order"),
   ]);
   const row = must("the profile", p);
+  const media = await assetsById([row.portrait_asset_id, row.cv_asset_id]);
+  const portrait = row.portrait_asset_id ? media.get(row.portrait_asset_id) : undefined;
+  const cv = row.cv_asset_id ? media.get(row.cv_asset_id) : undefined;
   const github = (links.data ?? []).find((l) => l.url.startsWith("https://github.com/"));
   return {
     name: row.name,
@@ -79,8 +101,8 @@ export async function getProfile(): Promise<Profile> {
     location: row.location,
     email: row.public_email,
     githubUrl: github?.url ?? null,
-    cvUrl: CV_URL,
-    portrait: PORTRAIT,
+    cvUrl: cv ? publicUrl(cv.path) : CV_URL,
+    portrait: portrait ? { src: publicUrl(portrait.path), alt: portrait.alt || PORTRAIT.alt } : PORTRAIT,
     languages: row.languages,
   };
 }
@@ -90,7 +112,12 @@ export async function getProjects(): Promise<Project[]> {
   cacheLife("hours");
   cacheTag("content", "projects");
   const rows = must("projects", await db().from("projects").select("*").order("sort_order"));
-  return rows.map((r) => ({
+  const covers = await db().from("project_media").select("project_id,media_asset_id").eq("is_cover", true);
+  const coverOf = new Map((covers.data ?? []).map((c) => [c.project_id, c.media_asset_id]));
+  const media = await assetsById([...coverOf.values()]);
+  return rows.map((r) => {
+    const asset = media.get(coverOf.get(r.id) ?? -1);
+    return {
     slug: r.slug,
     title: r.title,
     category: r.category,
@@ -103,13 +130,14 @@ export async function getProjects(): Promise<Project[]> {
     lessons: opt(r.lessons),
     hardware: r.hardware,
     software: r.software,
-    image: PROJECT_IMAGES[r.slug],
+    image: asset ? toImage(asset, r.title) : PROJECT_IMAGES[r.slug],
     repoUrl: opt(r.repo_url),
     demoUrl: opt(r.demo_url),
     docsUrl: opt(r.docs_url),
     featured: r.featured,
     updatedAt: r.updated_at,
-  }));
+    };
+  });
 }
 
 export async function getProject(slug: string) {
@@ -180,6 +208,7 @@ export async function getActivities(): Promise<Activity[]> {
   cacheLife("hours");
   cacheTag("content", "activities");
   const rows = must("activities", await db().from("activities").select("*").order("sort_order"));
+  const media = await assetsById(rows.map((r) => r.cover_asset_id));
   return rows.map((r) => ({
     slug: r.slug,
     title: r.title,
@@ -190,6 +219,7 @@ export async function getActivities(): Promise<Activity[]> {
     story: opt(r.story),
     organizer: opt(r.organizer),
     externalUrl: opt(r.external_url),
+    cover: r.cover_asset_id && media.has(r.cover_asset_id) ? toImage(media.get(r.cover_asset_id)!, r.title) : undefined,
   }));
 }
 

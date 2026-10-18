@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { formatDay, getActivities } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -36,6 +37,16 @@ export default async function ActivitiesPage() {
                 className={`float-card max-w-xl ${i % 2 ? "ml-auto rotate-1" : "-rotate-1"}`}
               >
                 <article className="bg-sheet p-7 text-ink shadow-[0_24px_50px_-24px_rgb(5_20_14/0.8)]">
+                  {a.cover && (
+                    <Image
+                      src={a.cover.src}
+                      alt={a.cover.alt}
+                      width={a.cover.width}
+                      height={a.cover.height}
+                      sizes="(min-width: 640px) 576px, 100vw"
+                      className="mb-5 aspect-[3/2] w-full object-cover"
+                    />
+                  )}
                   <p className="font-mono text-sm tabular-nums text-ink-dim">
                     {formatDay(a.date)}
                     {a.location && <span className="font-sans"> · {a.location}</span>}

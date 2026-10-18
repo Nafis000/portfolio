@@ -1,10 +1,12 @@
 import "server-only";
+import { connection } from "next/server";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 // Server-side gate for every admin page and action. The role comes from the database
 // (private.admins via current_user_is_admin), never from anything the browser sends.
 export async function requireAdmin() {
+  await connection(); // admin pages are per-request; never prerendered (the auth client reads the clock)
   const supabase = await createClient();
   const { data } = await supabase.auth.getClaims();
   if (!data?.claims) redirect("/admin/login");

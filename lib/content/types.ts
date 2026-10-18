@@ -70,6 +70,7 @@ export type Activity = {
   story?: string;
   organizer?: string;
   externalUrl?: string;
+  cover?: { src: string; alt: string; width: number; height: number };
 };
 
 export type SkillGroup = { name: string; items: { label: string; level?: string }[] };

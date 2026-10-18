@@ -18,6 +18,8 @@ export type Database = {
         location: string | null;
         languages: string | null;
         public_email: string | null;
+        portrait_asset_id: number | null;
+        cv_asset_id: number | null;
         published: boolean;
       }>;
       projects: Table<{
@@ -103,10 +105,12 @@ export type Database = {
         story: string | null;
         organizer: string | null;
         external_url: string | null;
+        cover_asset_id: number | null;
         achievements: string[];
         sort_order: number;
         published: boolean;
       }>;
+      project_media: Table<{ id: number; project_id: number; media_asset_id: number; kind: string; caption: string | null; is_cover: boolean; sort_order: number }>;
       media_assets: Table<{ id: number; bucket: string; path: string; alt: string; mime_type: string; width: number | null; height: number | null }>;
       social_links: Table<{ id: number; label: string; url: string; sort_order: number; published: boolean }>;
       navigation_items: Table<{ id: number; label: string; href: string; sort_order: number; published: boolean }>;
