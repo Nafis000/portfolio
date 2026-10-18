@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mat: the self-healing cutting mat every page is laid on */
+  --color-mat: #1c4234;
+  --color-mat-deep: #142f25;
+  --color-mat-line: #2b5745;
+  --color-chalk: #eef0e6;
+  --color-chalk-dim: #b8c7bc;
+  --color-copper: #e39a62;
+  --color-copper-deep: #9a5222;
+  /* Datasheet: the white sheets laid on the mat */
+  --color-sheet: #f4f6f1;
+  --color-sheet-line: #d5dcd4;
+  --color-ink: #13201a;
+  --color-ink-dim: #46564e;
+  /* Notebook: graph paper used by the Education world */
+  --color-paper: #f2f5f7;
+  --color-paper-line: #c3d3df;
+  --color-pencil: #3d5566;
+
+  --font-display: var(--font-barlow), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-source), system-ui, sans-serif;
+  --font-hand: var(--font-kalam), cursive;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-mat-line) var(--color-mat-deep);
+  }
+  body {
+    background-color: var(--color-mat);
+    color: var(--color-chalk);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-copper);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Centimetre grid of a cutting mat: minor every 24px, major every 120px */
+  .mat-grid {
+    background-color: var(--color-mat);
+    background-image:
+      linear-gradient(to right, rgb(238 240 230 / 0.13) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(238 240 230 / 0.13) 1px, transparent 1px),
+      linear-gradient(to right, rgb(238 240 230 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(238 240 230 / 0.05) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      24px 24px,
+      24px 24px;
+  }
+  /* Ruler ticks along an edge: long tick every 120px, short every 24px */
+  .ruler-x {
+    background-image:
+      repeating-linear-gradient(to right, rgb(238 240 230 / 0.55) 0 1px, transparent 1px 120px),
+      repeating-linear-gradient(to right, rgb(238 240 230 / 0.3) 0 1px, transparent 1px 24px);
+    background-size:
+      100% 12px,
+      100% 6px;
+    background-repeat: no-repeat;
+  }
+  .ruler-y {
+    background-image:
+      repeating-linear-gradient(to bottom, rgb(238 240 230 / 0.55) 0 1px, transparent 1px 120px),
+      repeating-linear-gradient(to bottom, rgb(238 240 230 / 0.3) 0 1px, transparent 1px 24px);
+    background-size:
+      12px 100%,
+      6px 100%;
+    background-repeat: no-repeat;
+  }
+  /* Graph paper for the notebook world */
+  .graph-paper {
+    background-color: var(--color-paper);
+    background-image:
+      linear-gradient(to right, rgb(61 85 102 / 0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(61 85 102 / 0.18) 1px, transparent 1px),
+      linear-gradient(to right, rgb(61 85 102 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(61 85 102 / 0.07) 1px, transparent 1px);
+    background-size:
+      100px 100px,
+      100px 100px,
+      20px 20px,
+      20px 20px;
+  }
+}
+
+/* Hero drawing: one pen line drawn once on load, content readable before it finishes */
+@keyframes draw {
+  from {
+    stroke-dashoffset: var(--len);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes write {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pen {
+  stroke-dasharray: var(--len);
+  animation: draw var(--dur, 1.4s) var(--ease-out-expo) var(--delay, 0s) both;
+}
+.handwrite {
+  animation: write var(--dur, 0.9s) cubic-bezier(0.45, 0, 0.2, 1) var(--delay, 0s) both;
+}
+.settle {
+  animation: settle 0.6s var(--ease-out-expo) var(--delay, 0s) both;
+}
+
+/* The robot drives the drawn track as the hero scrolls away (scroll-driven where supported) */
+.robot-on-track {
+  offset-path: path("M 92 470 C 170 400, 250 520, 340 452 S 470 360, 560 430");
+  offset-rotate: auto;
+  offset-distance: 18%;
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .robot-on-track {
+      animation: drive linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 90vh;
+    }
+  }
+}
+@keyframes drive {
+  from {
+    offset-distance: 18%;
+  }
+  to {
+    offset-distance: 96%;
+  }
+}

@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T01:25:10+00:00",
+  "title": "Design System: Nafis Islam Nitol · Engineering Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "mat": {
+        "role": "neutral",
+        "displayName": "Cutting-Mat Green",
+        "canonical": "#1c4234",
+        "tonalRamp": [
+          "oklch(15% 0.05 160)",
+          "oklch(25% 0.05 160)",
+          "oklch(35% 0.05 160)",
+          "oklch(45% 0.05 160)",
+          "oklch(55% 0.05 160)",
+          "oklch(65% 0.05 160)",
+          "oklch(80% 0.05 160)",
+          "oklch(95% 0.05 160)"
+        ]
+      },
+      "mat-deep": {
+        "role": "neutral",
+        "displayName": "Mat Underside",
+        "canonical": "#142f25",
+        "tonalRamp": [
+          "oklch(15% 0.04 160)",
+          "oklch(25% 0.04 160)",
+          "oklch(35% 0.04 160)",
+          "oklch(45% 0.04 160)",
+          "oklch(55% 0.04 160)",
+          "oklch(65% 0.04 160)",
+          "oklch(80% 0.04 160)",
+          "oklch(95% 0.04 160)"
+        ]
+      },
+      "mat-line": {
+        "role": "neutral",
+        "displayName": "Mat Rule",
+        "canonical": "#2b5745",
+        "tonalRamp": [
+          "oklch(15% 0.055 160)",
+          "oklch(25% 0.055 160)",
+          "oklch(35% 0.055 160)",
+          "oklch(45% 0.055 160)",
+          "oklch(55% 0.055 160)",
+          "oklch(65% 0.055 160)",
+          "oklch(80% 0.055 160)",
+          "oklch(95% 0.055 160)"
+        ]
+      },
+      "chalk": {
+        "role": "neutral",
+        "displayName": "Chalk",
+        "canonical": "#eef0e6",
+        "tonalRamp": [
+          "oklch(15% 0.013 115)",
+          "oklch(25% 0.013 115)",
+          "oklch(35% 0.013 115)",
+          "oklch(45% 0.013 115)",
+          "oklch(55% 0.013 115)",
+          "oklch(65% 0.013 115)",
+          "oklch(80% 0.013 115)",
+          "oklch(95% 0.013 115)"
+        ]
+      },
+      "chalk-dim": {
+        "role": "neutral",
+        "displayName": "Dusty Chalk",
+        "canonical": "#b8c7bc",
+        "tonalRamp": [
+          "oklch(15% 0.02 155)",
+          "oklch(25% 0.02 155)",
+          "oklch(35% 0.02 155)",
+          "oklch(45% 0.02 155)",
+          "oklch(55% 0.02 155)",
+          "oklch(65% 0.02 155)",
+          "oklch(80% 0.02 155)",
+          "oklch(95% 0.02 155)"
+        ]
+      },
+      "copper": {
+        "role": "primary",
+        "displayName": "PCB Copper",
+        "canonical": "#e39a62",
+        "tonalRamp": [
+          "oklch(15% 0.11 55)",
+          "oklch(25% 0.11 55)",
+          "oklch(35% 0.11 55)",
+          "oklch(45% 0.11 55)",
+          "oklch(55% 0.11 55)",
+          "oklch(65% 0.11 55)",
+          "oklch(80% 0.11 55)",
+          "oklch(95% 0.11 55)"
+        ]
+      },
+      "copper-deep": {
+        "role": "primary",
+        "displayName": "Burnt Copper",
+        "canonical": "#9a5222",
+        "tonalRamp": [
+          "oklch(15% 0.11 50)",
+          "oklch(25% 0.11 50)",
+          "oklch(35% 0.11 50)",
+          "oklch(45% 0.11 50)",
+          "oklch(55% 0.11 50)",
+          "oklch(65% 0.11 50)",
+          "oklch(80% 0.11 50)",
+          "oklch(95% 0.11 50)"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Datasheet White",
+        "canonical": "#f4f6f1",
+        "tonalRamp": [
+          "oklch(15% 0.007 125)",
+          "oklch(25% 0.007 125)",
+          "oklch(35% 0.007 125)",
+          "oklch(45% 0.007 125)",
+          "oklch(55% 0.007 125)",
+          "oklch(65% 0.007 125)",
+          "oklch(80% 0.007 125)",
+          "oklch(95% 0.007 125)"
+        ]
+      },
+      "sheet-line": {
+        "role": "neutral",
+        "displayName": "Sheet Rule",
+        "canonical": "#d5dcd4",
+        "tonalRamp": [
+          "oklch(15% 0.012 145)",
+          "oklch(25% 0.012 145)",
+          "oklch(35% 0.012 145)",
+          "oklch(45% 0.012 145)",
+          "oklch(55% 0.012 145)",
+          "oklch(65% 0.012 145)",
+          "oklch(80% 0.012 145)",
+          "oklch(95% 0.012 145)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Drafting Ink",
+        "canonical": "#13201a",
+        "tonalRamp": [
+          "oklch(15% 0.02 160)",
+          "oklch(25% 0.02 160)",
+          "oklch(35% 0.02 160)",
+          "oklch(45% 0.02 160)",
+          "oklch(55% 0.02 160)",
+          "oklch(65% 0.02 160)",
+          "oklch(80% 0.02 160)",
+          "oklch(95% 0.02 160)"
+        ]
+      },
+      "ink-dim": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "#46564e",
+        "tonalRamp": [
+          "oklch(15% 0.02 160)",
+          "oklch(25% 0.02 160)",
+          "oklch(35% 0.02 160)",
+          "oklch(45% 0.02 160)",
+          "oklch(55% 0.02 160)",
+          "oklch(65% 0.02 160)",
+          "oklch(80% 0.02 160)",
+          "oklch(95% 0.02 160)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Graph Paper (notebook world)",
+        "canonical": "#f2f5f7",
+        "tonalRamp": [
+          "oklch(15% 0.004 230)",
+          "oklch(25% 0.004 230)",
+          "oklch(35% 0.004 230)",
+          "oklch(45% 0.004 230)",
+          "oklch(55% 0.004 230)",
+          "oklch(65% 0.004 230)",
+          "oklch(80% 0.004 230)",
+          "oklch(95% 0.004 230)"
+        ]
+      },
+      "paper-line": {
+        "role": "neutral",
+        "displayName": "Paper Rule (notebook world)",
+        "canonical": "#c3d3df",
+        "tonalRamp": [
+          "oklch(15% 0.02 240)",
+          "oklch(25% 0.02 240)",
+          "oklch(35% 0.02 240)",
+          "oklch(45% 0.02 240)",
+          "oklch(55% 0.02 240)",
+          "oklch(65% 0.02 240)",
+          "oklch(80% 0.02 240)",
+          "oklch(95% 0.02 240)"
+        ]
+      },
+      "pencil": {
+        "role": "neutral",
+        "displayName": "Pencil (notebook world)",
+        "canonical": "#3d5566",
+        "tonalRamp": [
+          "oklch(15% 0.03 240)",
+          "oklch(25% 0.03 240)",
+          "oklch(35% 0.03 240)",
+          "oklch(45% 0.03 240)",
+          "oklch(55% 0.03 240)",
+          "oklch(65% 0.03 240)",
+          "oklch(80% 0.03 240)",
+          "oklch(95% 0.03 240)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name only; page titles one step down at line-height 0.9."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles, uppercase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Datasheet titles, roles, qualifications, certification names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose, capped at 52-68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, buttons, categories, table heads, stamps; uppercase tracked Barlow."
+      },
+      "annotation": {
+        "displayName": "Annotation",
+        "purpose": "Kalam hand notes, captions and sheet section labels only."
+      },
+      "value": {
+        "displayName": "Value",
+        "purpose": "JetBrains Mono for dates, years, item numbers, ruler numbers; tabular figures."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet-rest",
+        "value": "0 18px 40px -18px rgb(5 20 14 / 0.7), 0 2px 6px rgb(5 20 14 / 0.25)",
+        "purpose": "Featured datasheet cards at rest."
+      },
+      {
+        "name": "sheet-lift",
+        "value": "0 28px 50px -20px rgb(5 20 14 / 0.75), 0 2px 6px rgb(5 20 14 / 0.25)",
+        "purpose": "Datasheet card on hover."
+      },
+      {
+        "name": "sheet-list",
+        "value": "0 24px 50px -24px rgb(5 20 14 / 0.8), 0 2px 6px rgb(5 20 14 / 0.25)",
+        "purpose": "Full-width sheets on the Projects page."
+      },
+      {
+        "name": "sheet-page",
+        "value": "0 30px 60px -28px rgb(5 20 14 / 0.85), 0 2px 6px rgb(5 20 14 / 0.25)",
+        "purpose": "The single sheet of a project detail page."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Pen strokes, settle-in and sheet hover."
+      },
+      {
+        "name": "ease-handwrite",
+        "value": "cubic-bezier(0.45, 0, 0.2, 1)",
+        "purpose": "Left-to-right clip reveal of handwritten text."
+      },
+      {
+        "name": "pen-draw",
+        "value": "stroke-dashoffset, 0.4-1.6s, ease-out-expo, staggered delays, plays once",
+        "purpose": "Copper pen line drawing itself on load."
+      },
+      {
+        "name": "settle",
+        "value": "opacity 0 to 1 and translateY(6px) to none, 0.6s ease-out-expo",
+        "purpose": "Labels and annotations arriving after their stroke."
+      },
+      {
+        "name": "sheet-hover",
+        "value": "rotate, translate, box-shadow 500ms ease-out-expo",
+        "purpose": "Sheet straightens and lifts 4px."
+      },
+      {
+        "name": "control-hover",
+        "value": "color, background-color 150ms",
+        "purpose": "Buttons, nav cells and links."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations 0.01ms; scroll-behavior auto",
+        "purpose": "Global prefers-reduced-motion override."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Copper drafting-label button for the single main action in a view.",
+      "html": "<div style=\"background:#1c4234;padding:24px\"><a class=\"ds-btn-primary\" href=\"#\">Explore projects</a></div>",
+      "css": ".ds-btn-primary { display: inline-block; background: var(--color-copper, #e39a62); color: var(--color-ink, #13201a); padding: 14px 24px; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 1.125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; border-radius: 0; transition: background-color 150ms; } .ds-btn-primary:hover { background: var(--color-chalk, #eef0e6); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-copper, #e39a62); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on the mat: chalk hairline, no fill.",
+      "html": "<div style=\"background:#1c4234;padding:24px\"><a class=\"ds-btn-outline\" href=\"#\">View CV <span class=\"ds-btn-note\">(PDF)</span></a></div>",
+      "css": ".ds-btn-outline { display: inline-block; border: 1px solid rgb(238 240 230 / 0.6); color: #eef0e6; padding: 14px 24px; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 1.125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: border-color 150ms, background-color 150ms; } .ds-btn-outline:hover { border-color: #eef0e6; background: rgb(238 240 230 / 0.1); } .ds-btn-note { font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 0.875rem; font-weight: 400; text-transform: none; letter-spacing: normal; color: #b8c7bc; } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-copper, #e39a62); outline-offset: 3px; }"
+    },
+    {
+      "name": "Title-Block Navigation",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Sticky mat-deep strip divided into ruled cells like a drawing title block.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-name\" href=\"#\">Nafis Islam Nitol</a><a class=\"ds-nav-cell\" href=\"#\">Projects</a><a class=\"ds-nav-cell\" href=\"#\">Education</a><a class=\"ds-nav-cell\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: stretch; background: rgb(20 47 37 / 0.92); backdrop-filter: blur(4px); border-bottom: 1px solid rgb(238 240 230 / 0.25); font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; } .ds-nav-name { padding: 12px 24px; font-size: 1.125rem; font-weight: 600; letter-spacing: 0.025em; color: #eef0e6; text-decoration: none; border-right: 1px solid rgb(238 240 230 / 0.25); } .ds-nav-name:hover { color: #e39a62; } .ds-nav-cell { display: flex; align-items: center; padding: 0 20px; font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #b8c7bc; text-decoration: none; border-right: 1px solid rgb(238 240 230 / 0.25); transition: color 150ms, background-color 150ms; } .ds-nav-cell:hover { color: #eef0e6; background: rgb(238 240 230 / 0.05); } .ds-nav a:focus-visible { outline: 2px solid var(--color-copper, #e39a62); outline-offset: 3px; }"
+    },
+    {
+      "name": "Software Chip",
+      "kind": "chip",
+      "refersTo": "chip-value",
+      "description": "Square chip listing software on a datasheet.",
+      "html": "<ul class=\"ds-chips\"><li class=\"ds-chip\">C++</li><li class=\"ds-chip\">PID control</li></ul>",
+      "css": ".ds-chips { display: flex; gap: 8px; list-style: none; margin: 0; padding: 16px; background: #f4f6f1; } .ds-chip { border: 1px solid rgb(19 32 26 / 0.4); padding: 4px 12px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.875rem; color: #13201a; }"
+    },
+    {
+      "name": "Status Stamp",
+      "kind": "custom",
+      "refersTo": "status-stamp",
+      "description": "Rubber stamp at -6deg showing project status; dashed ink-dim when unknown.",
+      "html": "<div style=\"background:#f4f6f1;padding:24px;display:flex;gap:24px\"><span class=\"ds-stamp\">Completed</span><span class=\"ds-stamp ds-stamp-tbc\">Status TBC</span></div>",
+      "css": ".ds-stamp { display: inline-block; transform: rotate(-6deg); border: 2px solid #9a5222; color: #9a5222; padding: 2px 8px; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; } .ds-stamp-tbc { border-style: dashed; border-color: #46564e; color: #46564e; }"
+    },
+    {
+      "name": "Datasheet Card",
+      "kind": "card",
+      "refersTo": "datasheet",
+      "description": "A project as a white sheet resting on the mat: summary, BOM, title block and stamp; straightens on hover.",
+      "html": "<div style=\"background:#1c4234;padding:40px\"><a class=\"ds-sheet\" href=\"#\" style=\"--tilt:1.1deg\"><div class=\"ds-sheet-body\"><p>A fully functional autonomous drone with gyroscope and GPS integration.</p><table class=\"ds-bom\"><thead><tr><th>Item</th><th>Part</th></tr></thead><tbody><tr><td>01</td><td>Flight controller</td></tr><tr><td>02</td><td>Brushless motors</td></tr></tbody></table></div><div class=\"ds-titleblock\"><div class=\"ds-tb-main\"><h3>QuadoBot</h3><p>Aerial robotics</p></div><div class=\"ds-tb-stamp\"><span class=\"ds-stamp\">Completed</span></div></div></a></div>",
+      "css": ".ds-sheet { display: flex; flex-direction: column; max-width: 420px; background: #f4f6f1; color: #13201a; text-decoration: none; rotate: var(--tilt); box-shadow: 0 18px 40px -18px rgb(5 20 14 / 0.7), 0 2px 6px rgb(5 20 14 / 0.25); transition: rotate 500ms cubic-bezier(0.16,1,0.3,1), translate 500ms cubic-bezier(0.16,1,0.3,1), box-shadow 500ms cubic-bezier(0.16,1,0.3,1); font-family: 'Source Sans 3', system-ui, sans-serif; } .ds-sheet:hover, .ds-sheet:focus-visible { rotate: 0deg; translate: 0 -4px; box-shadow: 0 28px 50px -20px rgb(5 20 14 / 0.75), 0 2px 6px rgb(5 20 14 / 0.25); } .ds-sheet:focus-visible { outline: 2px solid #e39a62; outline-offset: 3px; } .ds-sheet:hover h3 { color: #9a5222; } .ds-sheet-body { padding: 28px; display: flex; flex-direction: column; gap: 20px; } .ds-sheet-body p { margin: 0; line-height: 1.625; } .ds-bom { width: 100%; border-collapse: collapse; font-size: 0.875rem; text-align: left; } .ds-bom th { border-top: 1px solid rgb(19 32 26 / 0.7); border-bottom: 1px solid rgb(19 32 26 / 0.7); padding: 6px 8px 6px 0; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #46564e; } .ds-bom td { border-bottom: 1px solid #d5dcd4; padding: 6px 8px 6px 0; } .ds-bom td:first-child { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #46564e; width: 48px; } .ds-titleblock { display: grid; grid-template-columns: 1fr auto; border-top: 2px solid #13201a; } .ds-tb-main { border-right: 1px solid #13201a; padding: 12px 28px; } .ds-tb-main h3 { margin: 0; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; line-height: 1; letter-spacing: 0.02em; } .ds-tb-main p { margin: 4px 0 0; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; color: #46564e; } .ds-tb-stamp { display: flex; align-items: center; padding: 0 16px; } .ds-stamp { display: inline-block; transform: rotate(-6deg); border: 2px solid #9a5222; color: #9a5222; padding: 2px 8px; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; }"
+    },
+    {
+      "name": "Mat Grid Surface",
+      "kind": "custom",
+      "refersTo": "mat",
+      "description": "Cutting-mat green with chalk centimetre grid (24px minor, 120px major) and edge ruler ticks.",
+      "html": "<div class=\"ds-mat\"><div class=\"ds-ruler-x\"></div><p class=\"ds-mat-text\">On the bench</p></div>",
+      "css": ".ds-mat { position: relative; height: 240px; background-color: #1c4234; background-image: linear-gradient(to right, rgb(238 240 230 / 0.13) 1px, transparent 1px), linear-gradient(to bottom, rgb(238 240 230 / 0.13) 1px, transparent 1px), linear-gradient(to right, rgb(238 240 230 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(238 240 230 / 0.05) 1px, transparent 1px); background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px; } .ds-ruler-x { position: absolute; inset: 0 0 auto 0; height: 12px; background-image: repeating-linear-gradient(to right, rgb(238 240 230 / 0.55) 0 1px, transparent 1px 120px), repeating-linear-gradient(to right, rgb(238 240 230 / 0.3) 0 1px, transparent 1px 24px); background-size: 100% 12px, 100% 6px; background-repeat: no-repeat; } .ds-mat-text { position: absolute; left: 48px; bottom: 32px; margin: 0; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; color: #eef0e6; }"
+    },
+    {
+      "name": "Graph Paper Surface",
+      "kind": "custom",
+      "refersTo": "paper",
+      "description": "Notebook world surface (Education): pencil grid at 20px/100px with a hand-drawn grade ellipse.",
+      "html": "<div class=\"ds-graph\"><p class=\"ds-grade\">GPA 5.00</p></div>",
+      "css": ".ds-graph { height: 200px; padding: 48px; background-color: #f2f5f7; background-image: linear-gradient(to right, rgb(61 85 102 / 0.18) 1px, transparent 1px), linear-gradient(to bottom, rgb(61 85 102 / 0.18) 1px, transparent 1px), linear-gradient(to right, rgb(61 85 102 / 0.07) 1px, transparent 1px), linear-gradient(to bottom, rgb(61 85 102 / 0.07) 1px, transparent 1px); background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px; } .ds-grade { display: inline-block; margin: 0; transform: rotate(-2deg); border: 2px solid rgb(61 85 102 / 0.7); border-radius: 50%; padding: 4px 16px; font-family: 'Kalam', cursive; font-size: 1.125rem; color: #13201a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Engineer's Cutting Mat",
+    "overview": "Every page is laid on a self-healing cutting mat: a deep green surface with a chalk centimetre grid, numbered rulers along the top and left edges, and a protractor fan in the bottom-left corner. Work sits on the mat as objects. Projects are white datasheets with a ruled title block, a bill of materials and a rubber status stamp. The hero is an engineering drawing made with one copper pen line. The mood is precise, quiet and hands-on. Most of the surface is mat green and chalk, and copper is the one warm accent.\n\nThe system is shared by several section worlds. Each world changes the surface and keeps the type, the square drafting geometry, the copper accent and the navigation. Two worlds are built: **the mat** (home hero, Projects, Skills, the 404 page) with its **datasheets**, and **the notebook** (graph paper, previewed by the Education section on home). The Experience \"studio\", the Activities \"floating journal\" and the Certifications \"archive\" are **not built yet**. Experience currently renders on plain sheet white and Certifications on mat-deep. Their own tokens will be recorded when they ship, not invented here.\n\nDepth is physical. Sheets cast soft drop shadows onto the mat and rest at slight angles. Motion is a pen drawing once and then standing still: no loops and no ambient animation.",
+    "keyCharacteristics": [
+      "Deep cutting-mat green surface with a chalk 24px/120px grid and edge rulers",
+      "Square corners everywhere. The only curves are hand-drawn (pen rectangles, the grade ellipse)",
+      "Condensed uppercase drafting lettering for headings and labels, a humanist sans for reading",
+      "Kalam handwriting for annotations only, JetBrains Mono for values only",
+      "Projects as datasheets: title block, BOM table, rotated status stamp, soft cast shadow",
+      "One copper accent: a pen line, a primary button, a stamp or a highlighted word"
+    ],
+    "rules": [
+      {
+        "name": "The One Pen Rule",
+        "body": "Copper is the only chromatic accent. A new section does not add a new hue. It changes the surface (mat, sheet, paper) and keeps copper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper Swaps the Copper Rule",
+        "body": "Use copper on the mat and copper-deep on sheets and paper. Never use bright copper as text on white, and never use copper-deep on green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Drafting Caps Rule",
+        "body": "Every heading and label is Barlow set in uppercase. Prose is never uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Job Rule",
+        "body": "Kalam is for things a person would write by hand on the drawing. Mono is for values a person would read off a meter or a datasheet. Neither is used for running text or decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only Paper Casts Rule",
+        "body": "Shadows belong to sheets lying on the mat. Buttons, chips, stamps and bands stay flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every new surface on the mat, a sheet or graph paper, and keep copper as the only accent (The One Pen Rule).",
+      "**Do** use copper on green and copper-deep on white (The Paper Swaps the Copper Rule).",
+      "**Do** set headings and labels in uppercase Barlow Semi Condensed, and prose in Source Sans 3 capped at 52–68ch.",
+      "**Do** keep Kalam for genuine hand notes and JetBrains Mono for values (dates, item numbers, measurements) with tabular numbers.",
+      "**Do** give sheets the soft tinted cast shadow and a resting tilt within ±1.2°, straightening on hover and focus.",
+      "**Do** keep corners square, except for shapes that are visibly hand-drawn.",
+      "**Do** keep the 2px copper focus outline (3px offset) on every interactive element."
+    ],
+    "donts": [
+      "**Don't** add rounded cards, pill badges or hard offset shadows. Those belonged to the retired \"Playful Geometric\" site, and sheets on a mat cast soft shadows.",
+      "**Don't** add neon, glow or gradients. Light on the mat is matte.",
+      "**Don't** set body text in Kalam or mono, or use either one as decoration.",
+      "**Don't** put an annotation above a heading as a kicker or eyebrow. Hand notes run inline, caption a figure, or label a sheet section.",
+      "**Don't** loop animation or make content wait for it. The pen draws once.",
+      "**Don't** invent tokens for the Experience studio, Activities journal or Certifications archive before those worlds are built."
+    ]
+  }
+}
