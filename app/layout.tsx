@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Barlow_Semi_Condensed, Source_Sans_3, Kalam, JetBrains_Mono } from "next/font/google";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { CatCompanion } from "@/components/cat/CatCompanion";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const barlow = Barlow_Semi_Condensed({
@@ -13,10 +15,16 @@ const source = Source_Sans_3({ variable: "--font-source", subsets: ["latin", "la
 const kalam = Kalam({ variable: "--font-kalam", subsets: ["latin"], weight: ["400", "700"] });
 const jetbrains = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"], weight: ["400", "500"] });
 
+const description =
+  "Electrical engineering student at the University of Pécs building robots, drones and control systems: line followers, an autonomous drone and competition robots.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: "Nafis Islam Nitol · Electrical engineering portfolio", template: "%s · Nafis Islam Nitol" },
-  description:
-    "Electrical engineering student at the University of Pécs building robots, drones and control systems: line followers, an autonomous drone and competition robots.",
+  description,
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", siteName: "Nafis Islam Nitol", locale: "en_GB", description },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -33,10 +41,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SiteNav />
-        <main id="main" className="flex-1">
+        <main id="main" className="flex flex-1 flex-col">
           {children}
         </main>
         <SiteFooter />
+        <CatCompanion />
       </body>
     </html>
   );

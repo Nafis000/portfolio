@@ -6,16 +6,15 @@ The build brief is `website-arcitecture.md`, a staged plan for Next.js and Supab
 
 ## Status
 
-The build is staged. **Stages 1–3 are done:**
-- the Next.js scaffold, the design system, the home page, and the Projects index and detail pages
+The build is staged. **Stages 1–4 are done:**
+- the design system and every public page (home, projects, education, experience, certifications, activities), all read from Supabase
 - the Supabase schema, RLS, storage and admin auth
+- the working contact form, SEO (metadata, sitemap, robots, OG image, Person JSON-LD) and the cat companion
 
 Not built yet:
-- the public pages still read `lib/content/seed.ts`; switching them to Supabase reads is Stage 4
-- the CMS editing UI (Stage 5)
-- the working contact form (the table and policies exist, the UI doesn't)
-- the cat companion and the 3D scenes
-- separate Education, Experience, Activities and Certifications pages
+- the CMS editing UI (Stage 5); after a CMS write, call `revalidateTag`/`updateTag` with `"content"` or the section's tag
+- media in Storage: images and the CV still ship from `/public` (see the `PROJECT_IMAGES` shortcut in `lib/content/index.ts`)
+- 3D scenes and visual refinement (Stage 6), and tests, CI and deploy (Stage 7)
 
 ## Database (Supabase)
 
@@ -46,14 +45,16 @@ Not built yet:
 | `components/sections/HeroDrawing.tsx` | Hero SVG: PID law, then control loop, then track, then robot (scroll-driven via `.robot-on-track`) |
 | `components/projects/Datasheet.tsx` | `DatasheetLink`, `PartsList`, `StatusStamp` |
 | `components/layout/` | `SiteNav` (title-block nav), `SiteFooter`, `MatMarkings` (rulers and angle guides) |
-| `lib/content/` | `types.ts` (shapes mirror future DB tables), `seed.ts` (all current content), `index.ts` (async getters that Stage 3 will swap to Supabase) |
+| `lib/content/` | `index.ts`: cached Supabase reads (`use cache` + `cacheTag`); `types.ts`: app shapes; `format.ts`: client-safe helpers |
+| `components/cat/` | Cat companion: picks its mood from the `data-world` attribute of the section at mid-screen; `away` zones hide it; the visitor can toggle it in the footer |
+| `app/contact/actions.ts` | Contact server action (Zod, honeypot, timing); database trigger rate-limits per email and globally |
 | `public/` | `images/` (with provenance sidecars) and `cv/` |
 | `legacy/` | The old static HTML site, archived. Not served. |
 
 ## Content rules
 
 - Every fact must trace to `CV_.pdf` or the owner's confirmation (see PRODUCT.md "Evidence on Hand"). Never invent metrics, dates, statuses or credentials. Leave fields empty, and the UI hides them or shows "Status TBC".
-- Project `status` comments in `seed.ts` cite their CV source.
+- Project `status` comments in `supabase/migrations/*_seed_portfolio_content.sql` cite their CV source.
 - Public contact is limited to email, GitHub and the CV download. Phone and date of birth stay private, and the public CV still contains them (see the open items).
 
 ## Design rules (summary; DESIGN.md is the authority)

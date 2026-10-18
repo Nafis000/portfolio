@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeroDrawing } from "@/components/sections/HeroDrawing";
+import { SITE_URL } from "@/lib/site";
 import { MatMarkings } from "@/components/layout/MatMarkings";
 import { Arrow } from "@/components/ui/Arrow";
 import { DatasheetLink } from "@/components/projects/Datasheet";
+import { ContactForm } from "@/components/sections/ContactForm";
 import {
   formatMonth,
   getCertifications,
@@ -24,12 +26,31 @@ export default async function Home() {
     getSkills(),
   ]);
   const featured = projects.filter((p) => p.featured);
+  // Structured data only states what the page itself shows.
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    url: SITE_URL,
+    description: profile.headline,
+    knowsAbout: profile.interests,
+    alumniOf: education.filter((e) => e.end).map((e) => ({ "@type": "EducationalOrganization", name: e.institution })),
+    affiliation: education
+      .filter((e) => !e.end)
+      .map((e) => ({ "@type": "CollegeOrUniversity", name: e.institution })),
+    sameAs: profile.githubUrl ? [profile.githubUrl] : [],
+  };
   const [lead, ...rest] = featured;
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        // escaped so content can never close the script tag
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}
+      />
       {/* ───────── Hero: the drawing sheet ───────── */}
-      <section className="mat-grid relative overflow-hidden" aria-labelledby="hero-name">
+      <section data-world="mat" className="mat-grid relative overflow-hidden" aria-labelledby="hero-name">
         <MatMarkings />
 
         <div className="mx-auto grid min-h-[calc(100dvh-57px)] max-w-[1440px] items-center gap-10 px-6 pb-16 pt-14 sm:px-10 lg:grid-cols-[1.05fr_1fr] lg:gap-6 lg:px-16">
@@ -74,7 +95,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── About ───────── */}
-      <section aria-labelledby="about-title" className="border-t border-chalk/20 bg-mat-deep">
+      <section data-world="mat" aria-labelledby="about-title" className="border-t border-chalk/20 bg-mat-deep">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 sm:px-10 md:grid-cols-[minmax(0,320px)_1fr] lg:px-16 lg:py-32">
           <figure className="relative w-full max-w-[320px]">
             <Image
@@ -92,21 +113,21 @@ export default async function Home() {
               Theory first, then the soldering iron
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-chalk-dim sm:text-xl">{profile.about}</p>
-            <p className="mt-6 text-chalk-dim">{profile.languages}</p>
+            {profile.languages && <p className="mt-6 text-chalk-dim">{profile.languages}</p>}
           </div>
         </div>
       </section>
 
       {/* ───────── Education: the notebook ───────── */}
-      <section id="education" aria-labelledby="education-title" className="graph-paper scroll-mt-16 text-pencil">
+      <section data-world="notebook" id="education" aria-labelledby="education-title" className="graph-paper scroll-mt-16 text-pencil">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 id="education-title" className="text-5xl font-bold uppercase text-ink sm:text-6xl">
               Education
             </h2>
-            <p className="font-hand text-xl text-pencil" aria-hidden>
-              f(x) → ∫ learning dx
-            </p>
+            <Link href="/education" className="font-display text-lg font-semibold uppercase tracking-[0.08em] text-ink hover:text-copper-deep">
+              Open the notebook <Arrow />
+            </Link>
           </div>
           <ol className="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2">
             {education.map((e, i) => (
@@ -116,7 +137,7 @@ export default async function Home() {
                 </p>
                 <h3 className="mt-1 text-3xl font-bold uppercase leading-tight text-ink">{e.qualification}</h3>
                 <p className="mt-1 text-lg text-ink">
-                  {e.institution} <span className="text-pencil">· {e.location}</span>
+                  {e.institution} {e.location && <span className="text-pencil">· {e.location}</span>}
                 </p>
                 {(e.grade || e.note) && (
                   <p className="mt-3 inline-block -rotate-2 rounded-[50%] border-2 border-pencil/70 px-4 py-1 font-hand text-lg text-ink">
@@ -130,7 +151,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Projects: sheets on the bench ───────── */}
-      <section aria-labelledby="projects-title" className="mat-grid border-y border-chalk/20">
+      <section data-world="lab" aria-labelledby="projects-title" className="mat-grid border-y border-chalk/20">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 id="projects-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
@@ -156,11 +177,16 @@ export default async function Home() {
       </section>
 
       {/* ───────── Experience: the studio ───────── */}
-      <section id="experience" aria-labelledby="experience-title" className="scroll-mt-16 bg-sheet text-ink">
+      <section data-world="studio" id="experience" aria-labelledby="experience-title" className="scroll-mt-16 bg-sheet text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16 lg:py-28">
-          <h2 id="experience-title" className="text-5xl font-bold uppercase lg:col-span-4 sm:text-6xl">
-            Experience
-          </h2>
+          <div className="lg:col-span-4">
+            <h2 id="experience-title" className="text-5xl font-bold uppercase sm:text-6xl">
+              Experience
+            </h2>
+            <Link href="/experience" className="mt-4 inline-block font-display text-lg font-semibold uppercase tracking-[0.08em] hover:text-copper-deep">
+              The studio <Arrow />
+            </Link>
+          </div>
           <ul className="divide-y divide-sheet-line border-y-2 border-ink lg:col-span-8">
             {experience.map((x) => (
               <li key={x.organization} className="grid gap-4 py-8 sm:grid-cols-[12rem_1fr]">
@@ -186,11 +212,16 @@ export default async function Home() {
       </section>
 
       {/* ───────── Certifications ───────── */}
-      <section id="certifications" aria-labelledby="certs-title" className="scroll-mt-16 bg-mat-deep">
+      <section data-world="mat" id="certifications" aria-labelledby="certs-title" className="scroll-mt-16 bg-mat-deep">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16">
-          <h2 id="certs-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
-            Certifications
-          </h2>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <h2 id="certs-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
+              Certifications
+            </h2>
+            <Link href="/certifications" className="font-display text-lg font-semibold uppercase tracking-[0.08em] text-copper hover:text-chalk">
+              The archive <Arrow />
+            </Link>
+          </div>
           <ul className="mt-12 grid gap-px border border-chalk/20 bg-chalk/20 md:grid-cols-3">
             {certifications.map((c) => (
               <li key={c.title} className="flex flex-col gap-3 bg-mat-deep p-7">
@@ -205,7 +236,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Skills: the parts bin ───────── */}
-      <section id="skills" aria-labelledby="skills-title" className="mat-grid scroll-mt-16 border-y border-chalk/20">
+      <section data-world="mat" id="skills" aria-labelledby="skills-title" className="mat-grid scroll-mt-16 border-y border-chalk/20">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16">
           <div className="lg:col-span-4">
             <h2 id="skills-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
@@ -234,27 +265,42 @@ export default async function Home() {
       </section>
 
       {/* ───────── Contact ───────── */}
-      <section id="contact" aria-labelledby="contact-title" className="relative scroll-mt-16 bg-copper text-ink">
-        <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
-          <h2 id="contact-title" className="max-w-[16ch] text-[clamp(3rem,7vw,6rem)] font-bold uppercase leading-[0.9]">
-            Building something? Let&rsquo;s talk.
-          </h2>
-          <p className="mt-6 max-w-[52ch] text-lg">
-            Happy to talk about robotics, automation and embedded systems: projects, teams and opportunities.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4 font-display text-2xl font-semibold uppercase tracking-[0.04em]">
-            <a
-              href={`mailto:${profile.email}`}
-              className="normal-case tracking-normal underline decoration-2 underline-offset-[0.2em] hover:decoration-[3px]"
-            >
-              {profile.email}
-            </a>
-            <a href={profile.githubUrl} className="underline-offset-[0.2em] hover:underline">
-              GitHub
-            </a>
-            <a href={profile.cvUrl} className="underline-offset-[0.2em] hover:underline">
-              CV (PDF)
-            </a>
+      <section data-world="mat" id="contact" aria-labelledby="contact-title" className="relative scroll-mt-16 bg-copper text-ink">
+        <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16 lg:py-32">
+          <div className="lg:col-span-5">
+            <h2 id="contact-title" className="max-w-[12ch] text-[clamp(3rem,6vw,5.5rem)] font-bold uppercase leading-[0.9]">
+              Building something? Let&rsquo;s talk.
+            </h2>
+            <p className="mt-6 max-w-[44ch] text-lg">
+              Happy to talk about robotics, automation and embedded systems: projects, teams and opportunities.
+            </p>
+            <ul className="mt-10 space-y-3 font-display text-2xl font-semibold uppercase tracking-[0.04em]">
+              {profile.email && (
+                <li>
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="normal-case tracking-normal underline decoration-2 underline-offset-[0.2em] hover:decoration-[3px]"
+                  >
+                    {profile.email}
+                  </a>
+                </li>
+              )}
+              {profile.githubUrl && (
+                <li>
+                  <a href={profile.githubUrl} className="underline-offset-[0.2em] hover:underline">
+                    GitHub
+                  </a>
+                </li>
+              )}
+              <li>
+                <a href={profile.cvUrl} className="underline-offset-[0.2em] hover:underline">
+                  CV (PDF)
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="lg:col-span-7 lg:pt-3">
+            <ContactForm email={profile.email} />
           </div>
         </div>
         {/* Discreet admin entry. A design detail only: the admin area enforces auth on the server. */}

@@ -1,17 +1,9 @@
 import Link from "next/link";
-
-// Sections without their own page yet point at their homepage chapter.
-const links = [
-  { href: "/projects", label: "Projects" },
-  { href: "/#education", label: "Education" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#certifications", label: "Certifications" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#contact", label: "Contact" },
-];
+import { getNavigation } from "@/lib/content";
 
 // A drawing title block: ruled cells across the top of the sheet.
-export function SiteNav() {
+export async function SiteNav() {
+  const links = await getNavigation();
   return (
     <header className="sticky top-0 z-40 border-b border-chalk/25 bg-mat-deep/92 backdrop-blur-sm">
       <nav aria-label="Main" className="mx-auto flex max-w-[1440px] items-stretch">

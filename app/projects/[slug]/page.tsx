@@ -13,12 +13,14 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const project = await getProject((await params).slug);
-  return project ? { title: project.title, description: project.summary } : {};
+  return project
+    ? { title: project.title, description: project.summary, alternates: { canonical: `/projects/${project.slug}` } }
+    : {};
 }
 
 export default function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   return (
-    <div className="mat-grid px-4 py-12 sm:px-8 lg:py-20">
+    <div data-world="lab" className="mat-grid grow px-4 py-12 sm:px-8 lg:py-20">
       <Suspense fallback={<div className="mx-auto min-h-[70dvh] max-w-[1180px] bg-sheet/90" aria-busy="true" />}>
         <ProjectSheet params={params} />
       </Suspense>

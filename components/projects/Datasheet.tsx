@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { statusLabel } from "@/lib/content";
+import { statusLabel } from "@/lib/content/format";
 import type { Project } from "@/lib/content/types";
 
 export function StatusStamp({ status, className = "" }: { status: Project["status"]; className?: string }) {

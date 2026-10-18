@@ -7,6 +7,7 @@ import { Arrow } from "@/components/ui/Arrow";
 import { getProjects } from "@/lib/content";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/projects" },
   title: "Projects",
   description: "Robots, drones and embedded systems: what each one had to do, how it works and what it is built from.",
 };
@@ -15,7 +16,7 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <div className="mat-grid relative">
+    <div data-world="lab" className="mat-grid relative grow">
       <MatMarkings />
       <header className="relative mx-auto max-w-[1440px] px-6 pb-10 pt-20 sm:px-10 lg:px-16 lg:pt-28">
         <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-bold uppercase leading-[0.9] text-chalk">The lab</h1>
