@@ -15,7 +15,7 @@ export default async function EducationPage() {
   const education = await getEducation();
 
   return (
-    <div data-world="notebook" className="graph-paper grow text-pencil">
+    <div className="graph-paper grow text-pencil">
       {/* the notebook's ruled margin */}
       <div className="relative mx-auto max-w-[1440px] px-6 pb-28 pt-16 sm:px-10 lg:px-16 lg:pt-24">
         <div aria-hidden className="absolute inset-y-0 left-[calc(1.5rem-2px)] hidden w-px bg-copper-deep/40 sm:left-6 sm:block lg:left-12" />

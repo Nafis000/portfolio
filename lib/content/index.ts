@@ -54,6 +54,13 @@ const CV_URL = "/cv/nafis-islam-nitol-cv.pdf";
 
 const opt = (v: string | null) => v ?? undefined;
 
+// Public URL of a file in the public "media" bucket.
+const toFile = (m: { path: string; mime_type: string; alt: string }, title: string) => ({
+  url: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/media/${m.path.split("/").map(encodeURIComponent).join("/")}`,
+  mimeType: m.mime_type,
+  alt: m.alt || `Certificate: ${title}`,
+});
+
 export async function getProfile(): Promise<Profile> {
   "use cache";
   cacheLife("hours");
@@ -150,6 +157,11 @@ export async function getCertifications(): Promise<Certification[]> {
   cacheLife("hours");
   cacheTag("content", "certifications");
   const rows = must("certifications", await db().from("certifications").select("*").order("sort_order"));
+  const ids = rows.map((r) => r.media_asset_id).filter((id): id is number => id !== null);
+  const media = ids.length
+    ? must("certificate files", await db().from("media_assets").select("id,path,mime_type,alt").in("id", ids))
+    : [];
+  const file = new Map(media.map((m) => [m.id, m]));
   return rows.map((r) => ({
     title: r.title,
     issuer: r.issuer,
@@ -159,6 +171,7 @@ export async function getCertifications(): Promise<Certification[]> {
     description: r.description,
     credentialUrl: opt(r.credential_url),
     credentialId: opt(r.credential_id),
+    certificate: r.media_asset_id && file.has(r.media_asset_id) ? toFile(file.get(r.media_asset_id)!, r.title) : undefined,
   }));
 }
 

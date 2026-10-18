@@ -57,6 +57,7 @@ export type Certification = {
   description: string | null;
   credentialUrl?: string;
   credentialId?: string;
+  certificate?: { url: string; mimeType: string; alt: string }; // the certificate file, from Storage
 };
 
 export type Activity = {

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PartsList, StatusStamp } from "@/components/projects/Datasheet";
 import { Arrow } from "@/components/ui/Arrow";
+import { ProjectDrawing, hasDrawing } from "@/components/projects/ProjectDrawing";
 import { getProject, getProjects } from "@/lib/content";
 
 export async function generateStaticParams() {
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
 
 export default function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   return (
-    <div data-world="lab" className="mat-grid grow px-4 py-12 sm:px-8 lg:py-20">
+    <div className="mat-grid grow px-4 py-12 sm:px-8 lg:py-20">
       <Suspense fallback={<div className="mx-auto min-h-[70dvh] max-w-[1180px] bg-sheet/90" aria-busy="true" />}>
         <ProjectSheet params={params} />
       </Suspense>
@@ -66,6 +67,15 @@ async function ProjectSheet({ params }: { params: PageProps<"/projects/[slug]">[
             )}
           </div>
         </header>
+
+        {hasDrawing(project.slug) && (
+          <figure className="border-t-2 border-ink px-6 py-8 sm:px-10">
+            <ProjectDrawing slug={project.slug} className="mx-auto max-w-4xl" />
+            <figcaption className="mx-auto mt-3 max-w-4xl font-hand text-lg text-ink-dim">
+              drawing of the build, parts marked from the bill of materials
+            </figcaption>
+          </figure>
+        )}
 
         <div className="grid border-t-2 border-ink lg:grid-cols-12">
           <div className="space-y-10 px-6 py-10 sm:px-10 lg:col-span-7 lg:py-14">

@@ -11,7 +11,7 @@ export default async function ActivitiesPage() {
   const activities = await getActivities();
 
   return (
-    <div data-world="journal" className="journal-surface min-h-[80dvh] grow">
+    <div className="journal-surface min-h-[80dvh] grow">
       <div className="mx-auto max-w-[1180px] px-6 pb-28 pt-16 sm:px-10 lg:pt-24">
         <header className="max-w-3xl">
           <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-bold uppercase leading-[0.9] text-chalk">The journal</h1>

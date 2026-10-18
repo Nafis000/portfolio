@@ -9,7 +9,8 @@ The build brief is `website-arcitecture.md`, a staged plan for Next.js and Supab
 The build is staged. **Stages 1–4 are done:**
 - the design system and every public page (home, projects, education, experience, certifications, activities), all read from Supabase
 - the Supabase schema, RLS, storage and admin auth
-- the working contact form, SEO (metadata, sitemap, robots, OG image, Person JSON-LD) and the cat companion
+- the working contact form, SEO (metadata, sitemap, robots, OG image, Person JSON-LD)
+- project drawings for every build, a labelled vision-pipeline illustration on /projects, and certificate viewer and verify buttons
 
 Not built yet:
 - the CMS editing UI (Stage 5); after a CMS write, call `revalidateTag`/`updateTag` with `"content"` or the section's tag
@@ -21,7 +22,9 @@ Not built yet:
 - Project "Nafis000's Project", ref `nbxouypyzocfbufpfvow`, region eu-west-1. Client config lives in `.env.local` (copy `.env.example`; publishable key only, never a secret key).
 - Migrations are in `supabase/migrations/`, named with the applied version. Add new ones as migrations, and never edit the database by hand without a matching file.
 - Access model:
-  - Admins are rows in `private.admins`. That schema isn't exposed through the API.
+  - Admins are rows in `private.admins` (currently nafisislamnitol@gmail.com). Add one with an insert by email lookup, never a hard-coded ID in a migration.
+  - Certificate files go in Storage bucket `media` (for example `certificates/<name>.pdf`), get a `media_assets` row, and link through `certifications.media_asset_id`. Verification links go in `certifications.credential_url`.
+  - The `private` schema isn't exposed through the API.
   - `private.is_admin()` checks the caller; `public.current_user_is_admin()` is the RPC the app calls.
   - Visitors read only rows with `published = true`, and only admins write.
   - Storage bucket `media` is public-read, and only admins can upload.
@@ -46,7 +49,7 @@ Not built yet:
 | `components/projects/Datasheet.tsx` | `DatasheetLink`, `PartsList`, `StatusStamp` |
 | `components/layout/` | `SiteNav` (title-block nav), `SiteFooter`, `MatMarkings` (rulers and angle guides) |
 | `lib/content/` | `index.ts`: cached Supabase reads (`use cache` + `cacheTag`); `types.ts`: app shapes; `format.ts`: client-safe helpers |
-| `components/cat/` | Cat companion: picks its mood from the `data-world` attribute of the section at mid-screen; `away` zones hide it; the visitor can toggle it in the footer |
+| `components/projects/` | `Datasheet`, `ProjectDrawing` (pen drawings per slug, parts tagged from the BOM), `VisionPipeline` (illustration, not a model), `Annotate` |
 | `app/contact/actions.ts` | Contact server action (Zod, honeypot, timing); database trigger rate-limits per email and globally |
 | `public/` | `images/` (with provenance sidecars) and `cv/` |
 | `legacy/` | The old static HTML site, archived. Not served. |

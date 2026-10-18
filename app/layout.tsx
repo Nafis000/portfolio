@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Barlow_Semi_Condensed, Source_Sans_3, Kalam, JetBrains_Mono } from "next/font/google";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { CatCompanion } from "@/components/cat/CatCompanion";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -45,7 +44,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <CatCompanion />
       </body>
     </html>
   );

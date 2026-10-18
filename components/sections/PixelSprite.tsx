@@ -42,18 +42,3 @@ export const DOG = [
   "..KBK.....KBK...",
   "..KK......KK....",
 ];
-
-export const CAT = [
-  ".K...K..........",
-  "KGK.KGK.........",
-  "KGGKGGK.........",
-  "KGWGWGK.........",
-  "KGGGGGK.......KK",
-  ".KGPGK.......KGK",
-  "..KGGKKKKKKKKGK.",
-  "..KGGGGGGGGGGK..",
-  "..KGLGGGLGGGGK..",
-  "..KGGGGGGGGGGK..",
-  "..KGK.KGK.KGK...",
-  "..KK..KK..KK....",
-];

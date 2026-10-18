@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PartsList, StatusStamp } from "@/components/projects/Datasheet";
 import { MatMarkings } from "@/components/layout/MatMarkings";
+import { ProjectDrawing } from "@/components/projects/ProjectDrawing";
+import { VisionPipeline } from "@/components/projects/VisionPipeline";
 import { Arrow } from "@/components/ui/Arrow";
 import { getProjects } from "@/lib/content";
 
@@ -16,14 +18,19 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <div data-world="lab" className="mat-grid relative grow">
+    <div className="mat-grid relative grow">
       <MatMarkings />
-      <header className="relative mx-auto max-w-[1440px] px-6 pb-10 pt-20 sm:px-10 lg:px-16 lg:pt-28">
-        <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-bold uppercase leading-[0.9] text-chalk">The lab</h1>
-        <p className="mt-6 max-w-[56ch] text-xl leading-snug text-chalk-dim">
-          Every project as a datasheet: what it had to do, how it works and what it&rsquo;s made of. Stamps mark how far
-          each one got.
-        </p>
+      <header className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-6 pb-14 pt-20 sm:px-10 lg:grid-cols-12 lg:px-16 lg:pt-28">
+        <div className="lg:col-span-5">
+          <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-bold uppercase leading-[0.9] text-chalk">The lab</h1>
+          <p className="mt-6 max-w-[48ch] text-xl leading-snug text-chalk-dim">
+            Every project as a datasheet: what it had to do, how it works and what it&rsquo;s made of. Stamps mark how
+            far each one got.
+          </p>
+        </div>
+        <div className="lg:col-span-7">
+          <VisionPipeline />
+        </div>
       </header>
 
       <ol className="relative mx-auto max-w-[1440px] space-y-14 px-6 pb-28 sm:px-10 lg:space-y-20 lg:px-16">
@@ -33,7 +40,7 @@ export default async function ProjectsPage() {
               aria-labelledby={`p-${p.slug}`}
               className="relative grid bg-sheet text-ink shadow-[0_24px_50px_-24px_rgb(5_20_14/0.8),0_2px_6px_rgb(5_20_14/0.25)] lg:grid-cols-12"
             >
-              <div className={`p-7 sm:p-10 ${p.image ? "lg:col-span-7" : "lg:col-span-8"} ${i % 2 && p.image ? "lg:order-2" : ""}`}>
+              <div className={`p-7 sm:p-10 lg:col-span-7 ${i % 2 ? "lg:order-2" : ""}`}>
                 <div className="flex justify-end">
                   <StatusStamp status={p.status} />
                 </div>
@@ -58,9 +65,9 @@ export default async function ProjectsPage() {
                 </Link>
               </div>
               <div
-                className={`border-t-2 border-ink p-7 sm:p-10 lg:border-t-0 ${p.image ? "lg:col-span-5 lg:border-l-2" : "lg:col-span-4 lg:border-l-2"} ${i % 2 && p.image ? "lg:order-1 lg:border-l-0 lg:border-r-2" : ""}`}
+                className={`border-t-2 border-ink p-7 sm:p-10 lg:border-t-0 lg:col-span-5 lg:border-l-2 ${i % 2 ? "lg:order-1 lg:border-l-0 lg:border-r-2" : ""}`}
               >
-                {p.image && (
+                {p.image ? (
                   <Image
                     src={p.image.src}
                     alt={p.image.alt}
@@ -69,6 +76,8 @@ export default async function ProjectsPage() {
                     sizes="(min-width: 1024px) 38vw, 100vw"
                     className="mb-7 aspect-[2/1] w-full object-cover"
                   />
+                ) : (
+                  <ProjectDrawing slug={p.slug} className="mb-7 border border-sheet-line" />
                 )}
                 <PartsList items={p.hardware} />
               </div>

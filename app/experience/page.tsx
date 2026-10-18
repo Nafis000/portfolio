@@ -22,7 +22,7 @@ export default async function ExperiencePage() {
   const experience = await getExperience();
 
   return (
-    <div data-world="studio" className="grow bg-sheet text-ink">
+    <div className="grow bg-sheet text-ink">
       <div className="mx-auto max-w-[1440px] px-6 pb-28 pt-16 sm:px-10 lg:px-16 lg:pt-24">
         <header className="grid gap-10 border-b-2 border-ink pb-12 lg:grid-cols-12">
           <div className="lg:col-span-8">

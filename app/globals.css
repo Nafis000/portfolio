@@ -210,76 +210,19 @@
   }
 }
 
-/* Cat companion: moves between corners as the world changes; CSS-only motion, paused when the tab is hidden */
-.cat {
-  left: calc(100% - 100px);
-  transition:
-    left 1.6s cubic-bezier(0.45, 0, 0.2, 1),
-    opacity 0.4s ease;
-}
-.cat[data-spot="left"] {
-  left: 16px;
-}
-.cat-tail {
-  transform-origin: 58px 66px;
-  animation: cat-tail 3.2s ease-in-out infinite;
-}
-.cat-eyes {
-  transform-origin: 42px 26px;
-  animation: cat-blink 5s steps(1) infinite;
-}
-.cat-head {
-  transform-origin: 42px 40px;
-  transition: rotate 0.8s var(--ease-out-expo);
-}
-.cat[data-mood="notebook"] .cat-head {
-  rotate: -12deg; /* curious */
-}
-.cat[data-mood="studio"] .cat-tail {
-  animation-duration: 6s; /* calmer */
-}
-.cat[data-mood="journal"] .cat-soft {
-  animation: float 6s ease-in-out infinite;
-}
-.cat-pixel {
-  animation: cat-pixel-bob 1.2s steps(2) infinite;
-}
-.cat-paused *,
-.cat-paused {
-  animation-play-state: paused !important;
-}
-@keyframes cat-tail {
+/* Vision pipeline illustration: a slow pulse runs through the network layer by layer */
+@keyframes node-fire {
   0%,
+  60%,
   100% {
-    rotate: 0deg;
+    fill: var(--color-mat-deep);
   }
-  50% {
-    rotate: 9deg;
+  15% {
+    fill: var(--color-copper);
   }
 }
-@keyframes cat-blink {
-  0%,
-  94%,
-  100% {
-    scale: 1 1;
-  }
-  96% {
-    scale: 1 0.1;
-  }
-}
-@keyframes cat-pixel-bob {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-  50% {
-    translate: 0 -2px;
-  }
-}
-/* Phones: smaller, stays put in the right corner instead of walking across the text */
-@media (max-width: 639px) {
-  .cat,
-  .cat[data-spot="left"] {
-    left: calc(100% - 76px);
+@media (prefers-reduced-motion: no-preference) {
+  .vision-node {
+    animation: node-fire 3.6s ease-in-out infinite;
   }
 }

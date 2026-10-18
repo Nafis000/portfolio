@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: LayoutProps<"/admin">) {
   return (
-    <div data-world="away" className="mat-grid grow min-h-[80dvh] px-4 py-14 sm:px-8 lg:py-20">
+    <div className="mat-grid grow min-h-[80dvh] px-4 py-14 sm:px-8 lg:py-20">
       {children}
     </div>
   );

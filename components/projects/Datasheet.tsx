@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { statusLabel } from "@/lib/content/format";
 import type { Project } from "@/lib/content/types";
+import { ProjectDrawing } from "./ProjectDrawing";
 
 export function StatusStamp({ status, className = "" }: { status: Project["status"]; className?: string }) {
   if (!status)
@@ -67,7 +68,7 @@ export function DatasheetLink({
       style={{ "--tilt": `${tilt}deg` } as React.CSSProperties}
       className="group relative flex h-full rotate-(--tilt) flex-col bg-sheet text-ink shadow-[0_18px_40px_-18px_rgb(5_20_14/0.7),0_2px_6px_rgb(5_20_14/0.25)] transition-[rotate,translate,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:rotate-0 hover:shadow-[0_28px_50px_-20px_rgb(5_20_14/0.75),0_2px_6px_rgb(5_20_14/0.25)] focus-visible:rotate-0"
     >
-      {large && project.image && (
+      {large && project.image ? (
         <Image
           src={project.image.src}
           alt={project.image.alt}
@@ -76,6 +77,8 @@ export function DatasheetLink({
           sizes="(min-width: 1024px) 55vw, 100vw"
           className="aspect-[2/1] w-full object-cover"
         />
+      ) : (
+        <ProjectDrawing slug={project.slug} className="border-b border-sheet-line" />
       )}
       <div className="flex flex-1 flex-col gap-5 p-6 sm:p-7">
         <p className={`${large ? "text-lg" : "text-base"} max-w-[52ch] leading-relaxed text-ink`}>{project.summary}</p>

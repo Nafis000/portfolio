@@ -50,7 +50,7 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}
       />
       {/* ───────── Hero: the drawing sheet ───────── */}
-      <section data-world="mat" className="mat-grid relative overflow-hidden" aria-labelledby="hero-name">
+      <section className="mat-grid relative overflow-hidden" aria-labelledby="hero-name">
         <MatMarkings />
 
         <div className="mx-auto grid min-h-[calc(100dvh-57px)] max-w-[1440px] items-center gap-10 px-6 pb-16 pt-14 sm:px-10 lg:grid-cols-[1.05fr_1fr] lg:gap-6 lg:px-16">
@@ -95,7 +95,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── About ───────── */}
-      <section data-world="mat" aria-labelledby="about-title" className="border-t border-chalk/20 bg-mat-deep">
+      <section aria-labelledby="about-title" className="border-t border-chalk/20 bg-mat-deep">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 sm:px-10 md:grid-cols-[minmax(0,320px)_1fr] lg:px-16 lg:py-32">
           <figure className="relative w-full max-w-[320px]">
             <Image
@@ -119,7 +119,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Education: the notebook ───────── */}
-      <section data-world="notebook" id="education" aria-labelledby="education-title" className="graph-paper scroll-mt-16 text-pencil">
+      <section id="education" aria-labelledby="education-title" className="graph-paper scroll-mt-16 text-pencil">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 id="education-title" className="text-5xl font-bold uppercase text-ink sm:text-6xl">
@@ -151,7 +151,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Projects: sheets on the bench ───────── */}
-      <section data-world="lab" aria-labelledby="projects-title" className="mat-grid border-y border-chalk/20">
+      <section aria-labelledby="projects-title" className="mat-grid border-y border-chalk/20">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 id="projects-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
@@ -177,7 +177,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Experience: the studio ───────── */}
-      <section data-world="studio" id="experience" aria-labelledby="experience-title" className="scroll-mt-16 bg-sheet text-ink">
+      <section id="experience" aria-labelledby="experience-title" className="scroll-mt-16 bg-sheet text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16 lg:py-28">
           <div className="lg:col-span-4">
             <h2 id="experience-title" className="text-5xl font-bold uppercase sm:text-6xl">
@@ -212,7 +212,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Certifications ───────── */}
-      <section data-world="mat" id="certifications" aria-labelledby="certs-title" className="scroll-mt-16 bg-mat-deep">
+      <section id="certifications" aria-labelledby="certs-title" className="scroll-mt-16 bg-mat-deep">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2 id="certs-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
@@ -236,7 +236,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Skills: the parts bin ───────── */}
-      <section data-world="mat" id="skills" aria-labelledby="skills-title" className="mat-grid scroll-mt-16 border-y border-chalk/20">
+      <section id="skills" aria-labelledby="skills-title" className="mat-grid scroll-mt-16 border-y border-chalk/20">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16">
           <div className="lg:col-span-4">
             <h2 id="skills-title" className="text-5xl font-bold uppercase text-chalk sm:text-6xl">
@@ -265,7 +265,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Contact ───────── */}
-      <section data-world="mat" id="contact" aria-labelledby="contact-title" className="relative scroll-mt-16 bg-copper text-ink">
+      <section id="contact" aria-labelledby="contact-title" className="relative scroll-mt-16 bg-copper text-ink">
         <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-24 sm:px-10 lg:grid-cols-12 lg:px-16 lg:py-32">
           <div className="lg:col-span-5">
             <h2 id="contact-title" className="max-w-[12ch] text-[clamp(3rem,6vw,5.5rem)] font-bold uppercase leading-[0.9]">

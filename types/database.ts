@@ -87,6 +87,7 @@ export type Database = {
         category: string | null;
         kind: CredentialKind;
         description: string | null;
+        media_asset_id: number | null;
         sort_order: number;
         published: boolean;
       }>;
@@ -106,6 +107,7 @@ export type Database = {
         sort_order: number;
         published: boolean;
       }>;
+      media_assets: Table<{ id: number; bucket: string; path: string; alt: string; mime_type: string; width: number | null; height: number | null }>;
       social_links: Table<{ id: number; label: string; url: string; sort_order: number; published: boolean }>;
       navigation_items: Table<{ id: number; label: string; href: string; sort_order: number; published: boolean }>;
       contact_messages: Table<
