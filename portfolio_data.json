@@ -1,0 +1,118 @@
+{
+  "projects": [
+    {
+      "id": "lfr",
+      "title": "Line Follower Robot",
+      "shortDescription": "Autonomous robot using Arduino Nano and PID for smooth tracking.",
+      "longDescription": "Implemented a PID (Proportional-Integral-Derivative) control algorithm using an Arduino Nano. This calculates the error value from the IR sensor array and adjusts motor speed continuously for smooth path correction.",
+      "image": "pictures/Screenshot 2025-12-19 163131.png",
+      "category": "PID",
+      "challenge": "To build a high-speed robot capable of following a complex black line on a white surface without losing trajectory on sharp turns.",
+      "solution": "Implemented a PID (Proportional-Integral-Derivative) control algorithm using an Arduino Nano. This calculates the error value from the IR sensor array and adjusts motor speed continuously for smooth path correction.",
+      "techStack": [
+        "Arduino Nano",
+        "QTR-8RC Sensors",
+        "L298N Driver",
+        "C++"
+      ],
+      "githubUrl": "#",
+      "featured": true
+    },
+    {
+      "id": "rover",
+      "title": "ESP32 Wi-Fi Rover",
+      "shortDescription": "Remote controlled rover via Wi-Fi with OLED feedback.",
+      "longDescription": "Built a web-controlled surveillance rover. The ESP32 hosts a web server that serves a control interface to any connected phone/laptop. It displays connection status and IP address on an onboard OLED screen.",
+      "image": "pictures/Screenshot 2025-12-19 163131.png",
+      "category": "IoT",
+      "challenge": "To construct a low-latency web-controlled vehicle with onboard feedback.",
+      "solution": "Designed a mobile web dashboard hosting control buttons. Used WebSocket communication on the ESP32 to receive controls and updated an SSD1306 OLED screen over I2C with current statuses.",
+      "techStack": [
+        "ESP32",
+        "WebSocket",
+        "OLED I2C"
+      ],
+      "githubUrl": "#",
+      "featured": true
+    },
+    {
+      "id": "soccer",
+      "title": "RC Soccer Bot",
+      "shortDescription": "High-torque robot designed for speed and responsiveness.",
+      "longDescription": "Engineered a robust chassis with high-torque gear motors to push objects (balls) while maintaining high agility. Optimized weight distribution for traction.",
+      "image": "pictures/Screenshot 2025-12-19 163131.png",
+      "category": "Robotics",
+      "challenge": "To design a chassis and drive system that provides strong pushing power while keeping the robot highly agile and responsive.",
+      "solution": "Engineered a robust custom chassis using lightweight acrylic. Implemented high-torque DC gear motors and high-traction wheels, optimized center of gravity, and controlled it using a custom transmitter/receiver setup.",
+      "techStack": [
+        "Arduino",
+        "High-Torque Motors",
+        "RF Receiver",
+        "Acrylic Chassis"
+      ],
+      "githubUrl": "#",
+      "featured": true
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "BSc in Electrical Engineering",
+      "institution": "University of Pécs (Hungary)",
+      "period": "Current Student",
+      "tag": "Stipendium Hungaricum Scholar"
+    },
+    {
+      "id": "edu-2",
+      "degree": "BSc in CSE",
+      "institution": "University of Asia Pacific",
+      "period": "Jul 2024 – Jun 2025 (2 Semesters)",
+      "tag": "CGPA: 3.94"
+    },
+    {
+      "id": "edu-3",
+      "degree": "HSC (Science)",
+      "institution": "Shaheed Police Smrity College",
+      "period": "2022",
+      "tag": "GPA 5.00"
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "role": "Customer Relationship Officer",
+      "company": "Synergy Solutions",
+      "period": "Feb '24 - Sept '24",
+      "bullets": [
+        "Managed customer communication and relationship support.",
+        "Improved coordination, problem-solving, and professional communication skills."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "Advanced IoT System Design",
+      "issuer": "Coursera / University of California",
+      "year": "2024",
+      "description": "Comprehensive course on designing IoT architecture, sensor integration, and cloud data processing using ESP32.",
+      "url": "#"
+    },
+    {
+      "id": "cert-2",
+      "title": "C++ Programming for Robotics",
+      "issuer": "Udemy Academy",
+      "year": "2023",
+      "description": "Focused on memory management, pointers, and object-oriented programming specifically for embedded systems.",
+      "url": "#"
+    },
+    {
+      "id": "cert-3",
+      "title": "Arduino Fundamentals",
+      "issuer": "Arduino Official",
+      "year": "2022",
+      "description": "Mastered digital I/O, PWM, and serial communication protocols.",
+      "url": "#"
+    }
+  ]
+}

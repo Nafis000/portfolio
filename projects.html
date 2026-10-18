@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Projects | Nafis Islam Nitol</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     <script>
@@ -13,180 +16,249 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: { bg: '#0b0f17', card: '#111620', border: '#1f2937' },
-                        neon: { cyan: '#06b6d4', purple: '#a855f7', green: '#22c55e' }
+                        paper: '#FFFDF5',
+                        slate: { 800: '#1E293B', 900: '#0F172A' },
+                        violet: { 500: '#8B5CF6', 600: '#7C3AED' },
+                        pink: { 400: '#F472B6', 500: '#EC4899' },
+                        amber: { 400: '#FBBF24', 500: '#F59E0B' },
+                        mint: { 400: '#34D399', 500: '#10B981' }
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    boxShadow: { 'glass': '0 4px 30px rgba(0, 0, 0, 0.1)' }
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'pop': '4px 4px 0px 0px #1E293B',
+                        'pop-hover': '6px 6px 0px 0px #1E293B',
+                        'pop-lg': '8px 8px 0px 0px #1E293B',
+                        'pop-pink': '6px 6px 0px 0px #F472B6',
+                        'pop-yellow': '6px 6px 0px 0px #FBBF24',
+                        'pop-violet': '6px 6px 0px 0px #8B5CF6',
+                        'pop-mint': '6px 6px 0px 0px #34D399'
+                    }
                 }
             }
         }
     </script>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden bg-[#FFFDF5] text-[#1E293B]">
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 shadow-lg" id="navbar">
-        <div class="glass-panel border-b border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <a href="index.html" class="font-mono font-bold text-xl tracking-tighter text-neon-cyan hover:text-white transition-colors">
-                        &lt;NITOL/&gt;
-                    </a>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-8">
-                            <a href="index.html#home" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                            <a href="index.html#about" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                            <a href="projects.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                            <a href="certifications.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
-                            <a href="index.html#services" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                            <a href="index.html#contact" class="px-4 py-2 border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all text-sm font-medium shadow-neon-cyan">Contact</a>
-                        </div>
+    <!-- Playful Top Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 px-4 py-3" id="navbar">
+        <div class="max-w-7xl mx-auto bg-white border-2 border-[#1E293B] rounded-full shadow-[4px_4px_0px_0px_#1E293B] px-6 py-2">
+            <div class="flex items-center justify-between h-12">
+                <a href="index.html" class="font-heading font-extrabold text-2xl tracking-tight text-[#8B5CF6] hover:scale-105 transition-transform flex items-center gap-1">
+                    <span class="w-3 h-3 rounded-full bg-[#F472B6] border-2 border-[#1E293B] inline-block"></span>
+                    &lt;NITOL/&gt;
+                </a>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-6">
+                        <a href="index.html#home" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Home</a>
+                        <a href="index.html#about" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">About</a>
+                        <a href="projects.html" class="text-[#8B5CF6] bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Projects</a>
+                        <a href="certifications.html" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Certifications</a>
+                        <a href="index.html#services" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Services</a>
+                        <a href="index.html#contact" class="btn-candy px-5 py-1.5 text-xs">Contact Me</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Sticky Admin Active Bar -->
+    <div id="admin-bar" class="fixed w-full z-40 top-20 bg-[#FBBF24] border-y-2 border-[#1E293B] px-4 py-2.5 hidden shadow-[0_4px_0_0_#1E293B] transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#34D399] border-2 border-[#1E293B] animate-pulse"></span>
+                <span class="text-xs font-mono font-bold text-[#1E293B] tracking-widest uppercase">Admin Active</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <button onclick="openProjectForm()" class="px-3 py-1.5 bg-[#8B5CF6] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#7C3AED] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Project
+                </button>
+                <button onclick="exportProjectsJSON()" class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Export JSON Data
+                </button>
+                <button onclick="triggerImportJSON()" class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="upload" class="w-3.5 h-3.5"></i> Import JSON
+                </button>
+                <input type="file" id="import-json-file" accept=".json" class="hidden">
+                <button onclick="disableAdminMode()" class="px-3 py-1.5 bg-[#EF4444] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-red-600 transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
     <section class="pt-32 pb-12 text-center px-4">
-        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">My Projects</h1>
-        <p class="text-gray-400 max-w-2xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-[#1E293B] mb-4">My Projects</h1>
+        <p class="text-[#64748B] max-w-2xl mx-auto font-medium">
             A collection of robotics, automation, and embedded systems I've engineered.
         </p>
     </section>
 
+    <!-- Project Cards Grid -->
     <section class="pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-cyan transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-gray-800 relative flex items-center justify-center">
-                    <i data-lucide="activity" class="w-12 h-12 text-gray-600"></i>
-                    <div class="absolute top-2 right-2 flex gap-1">
-                        <span class="text-[10px] bg-black/70 text-neon-cyan px-2 py-1 rounded backdrop-blur-md">PID</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Line Follower Robot</h3>
-                    <p class="text-gray-400 text-sm mb-4">Autonomous robot using Arduino Nano and PID for smooth tracking.</p>
-                    <button onclick="openModal('modal-lfr')" class="w-full py-2 text-sm bg-gray-800 text-white rounded hover:bg-neon-cyan hover:text-black transition-colors">
-                        View Details
-                    </button>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-purple transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-gray-800 relative flex items-center justify-center">
-                    <i data-lucide="wifi" class="w-12 h-12 text-gray-600"></i>
-                    <div class="absolute top-2 right-2 flex gap-1">
-                        <span class="text-[10px] bg-black/70 text-neon-purple px-2 py-1 rounded backdrop-blur-md">IoT</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">ESP32 Wi-Fi Rover</h3>
-                    <p class="text-gray-400 text-sm mb-4">Remote controlled rover via Wi-Fi with OLED feedback.</p>
-                    <button onclick="openModal('modal-rover')" class="w-full py-2 text-sm bg-gray-800 text-white rounded hover:bg-neon-purple hover:text-black transition-colors">
-                        View Details
-                    </button>
-                </div>
-            </div>
-
-            <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-green transition-all duration-300 hover:-translate-y-2">
-                <div class="h-48 bg-gray-800 relative flex items-center justify-center">
-                    <i data-lucide="dribbble" class="w-12 h-12 text-gray-600"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">RC Soccer Bot</h3>
-                    <p class="text-gray-400 text-sm mb-4">High-torque robot designed for speed and responsiveness.</p>
-                    <button onclick="openModal('modal-soccer')" class="w-full py-2 text-sm bg-gray-800 text-white rounded hover:bg-neon-green hover:text-black transition-colors">
-                        View Details
-                    </button>
-                </div>
-            </div>
-
+        <div id="projects-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic project cards are loaded here by script.js -->
         </div>
     </section>
 
-    <div id="modal-lfr" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black bg-opacity-80 transition-opacity backdrop-blur-sm" onclick="closeModal('modal-lfr')"></div>
+    <!-- Single Reusable Project Details Modal -->
+    <div id="project-detail-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeDetailsModal()"></div>
         
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-lg bg-[#111620] border border-gray-700 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-2xl">
                 
-                <div class="bg-[#0b0f17] px-4 py-3 sm:px-6 flex justify-between items-center border-b border-gray-800">
-                    <h3 class="text-lg font-bold leading-6 text-white" id="modal-title">Line Follower Robot (LFR)</h3>
-                    <button onclick="closeModal('modal-lfr')" class="text-gray-400 hover:text-white">
+                <div class="bg-[#FBBF24] px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6 text-[#1E293B]" id="detail-title">Project Details</h3>
+                    <button onclick="closeDetailsModal()" class="text-[#1E293B] hover:bg-white/50 p-1 rounded-full transition-colors">
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
                 
-                <div class="px-4 py-5 sm:p-6 text-gray-300 space-y-4">
-                    <img src="pictures/Screenshot 2025-12-19 163131.png" alt="Project Preview" class="w-full h-48 object-cover rounded mb-4 border border-gray-700 bg-gray-800">
+                <div class="px-4 py-5 sm:p-6 text-[#1E293B] space-y-4 max-h-[70vh] overflow-y-auto">
+                    <img id="detail-image" src="" alt="Project Image" class="w-full h-52 object-cover rounded-xl border-2 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] mb-4 bg-gray-100" onerror="this.src='pictures/projects/placeholder.png'">
 
-                    <h4 class="text-neon-cyan font-bold text-sm uppercase">The Challenge</h4>
-                    <p class="text-sm">To build a high-speed robot capable of following a complex black line on a white surface without losing trajectory on sharp turns.</p>
+                    <h4 class="text-[#8B5CF6] font-heading font-extrabold text-xs uppercase tracking-wider">The Challenge</h4>
+                    <p id="detail-challenge" class="text-sm text-[#64748B] font-medium leading-relaxed"></p>
 
-                    <h4 class="text-neon-cyan font-bold text-sm uppercase">The Solution</h4>
-                    <p class="text-sm">Implemented a PID (Proportional-Integral-Derivative) control algorithm using an Arduino Nano. This calculates the error value from the IR sensor array and adjusts motor speed continuously for smooth path correction.</p>
+                    <h4 class="text-[#8B5CF6] font-heading font-extrabold text-xs uppercase tracking-wider">The Solution</h4>
+                    <p id="detail-solution" class="text-sm text-[#64748B] font-medium leading-relaxed"></p>
 
-                    <h4 class="text-neon-cyan font-bold text-sm uppercase">Tech Stack</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">Arduino Nano</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">QTR-8RC Sensors</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">L298N Driver</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">C++</span>
+                    <h4 class="text-[#8B5CF6] font-heading font-extrabold text-xs uppercase tracking-wider">Tech Stack</h4>
+                    <div id="detail-techstack" class="flex flex-wrap gap-2 pt-1">
+                        <!-- Tech tags -->
                     </div>
                 </div>
 
-                <div class="bg-[#0b0f17] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-800">
-                    <a href="#" class="inline-flex w-full justify-center rounded-md bg-neon-cyan px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-cyan-400 sm:ml-3 sm:w-auto">View Code on GitHub</a>
-                    <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-300 shadow-sm ring-1 ring-inset ring-gray-700 hover:bg-gray-700 sm:mt-0 sm:w-auto" onclick="closeModal('modal-lfr')">Close</button>
+                <div class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <a id="detail-github-btn" href="#" target="_blank" class="btn-candy px-6 py-2 text-sm flex items-center justify-center gap-1.5">
+                        <i data-lucide="github" class="w-4 h-4"></i> View Code on GitHub
+                    </a>
+                    <button type="button" class="btn-secondary-pop px-4 py-2 text-sm" onclick="closeDetailsModal()">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="modal-rover" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black bg-opacity-80 transition-opacity backdrop-blur-sm" onclick="closeModal('modal-rover')"></div>
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeAdminLogin()"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-lg bg-[#111620] border border-gray-700 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-                <div class="bg-[#0b0f17] px-4 py-3 sm:px-6 flex justify-between items-center border-b border-gray-800">
-                    <h3 class="text-lg font-bold leading-6 text-white">ESP32 Wi-Fi Rover</h3>
-                    <button onclick="closeModal('modal-rover')" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-md">
+                <div class="bg-[#FBBF24] px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6 text-[#1E293B] flex items-center gap-2">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Admin Access
+                    </h3>
+                    <button onclick="closeAdminLogin()" class="text-[#1E293B] hover:bg-white/50 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
                 </div>
-                <div class="px-4 py-5 sm:p-6 text-gray-300 space-y-4">
-                    <p class="text-sm">Built a web-controlled surveillance rover. The ESP32 hosts a web server that serves a control interface to any connected phone/laptop. It displays connection status and IP address on an onboard OLED screen.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">ESP32</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">WebSocket</span>
-                        <span class="px-2 py-1 bg-gray-800 rounded text-xs border border-gray-600">OLED I2C</span>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-heading font-extrabold uppercase text-[#1E293B] mb-2">Enter Admin Password</label>
+                        <input type="password" id="admin-password" placeholder="••••••••" class="w-full admin-input">
                     </div>
                 </div>
-                <div class="bg-[#0b0f17] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-800">
-                    <button type="button" class="inline-flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 sm:w-auto" onclick="closeModal('modal-rover')">Close</button>
+                <div class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="verifyAdminPassword()" class="btn-candy px-6 py-2 text-sm">
+                        Verify
+                    </button>
+                    <button type="button" onclick="closeAdminLogin()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="modal-soccer" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="fixed inset-0 bg-black bg-opacity-80 transition-opacity backdrop-blur-sm" onclick="closeModal('modal-soccer')"></div>
+    <!-- Project Form Modal (Add / Edit) -->
+    <div id="project-form-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeProjectForm()"></div>
         <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-            <div class="relative transform overflow-hidden rounded-lg bg-[#111620] border border-gray-700 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl">
-                <div class="bg-[#0b0f17] px-4 py-3 sm:px-6 flex justify-between items-center border-b border-gray-800">
-                    <h3 class="text-lg font-bold leading-6 text-white">RC Soccer Bot</h3>
-                    <button onclick="closeModal('modal-soccer')" class="text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <div class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-2xl">
+                <div class="bg-[#8B5CF6] text-white px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6" id="form-title">Add New Project</h3>
+                    <button onclick="closeProjectForm()" class="text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
                 </div>
-                <div class="px-4 py-5 sm:p-6 text-gray-300 space-y-4">
-                    <p class="text-sm">Engineered a robust chassis with high-torque gear motors to push objects (balls) while maintaining high agility. Optimized weight distribution for traction.</p>
+                
+                <div class="p-6 max-h-[70vh] overflow-y-auto space-y-4">
+                    <input type="hidden" id="form-project-id">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">PROJECT TITLE *</label>
+                            <input type="text" id="form-project-title" placeholder="e.g. Smart Car Rover" class="w-full admin-input">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">CATEGORY / BADGE *</label>
+                            <input type="text" id="form-project-category" placeholder="e.g. IoT, Robotics, PID" class="w-full admin-input">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">IMAGE FILE PATH / URL</label>
+                            <input type="text" id="form-project-image" placeholder="pictures/projects/placeholder.png" class="w-full admin-input">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">GITHUB URL</label>
+                            <input type="text" id="form-project-github" placeholder="https://github.com/..." class="w-full admin-input">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">SHORT DESCRIPTION (Shown on Card) *</label>
+                        <input type="text" id="form-project-short" placeholder="A brief one-liner summary of the project..." class="w-full admin-input">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">THE CHALLENGE (Modal details)</label>
+                        <textarea id="form-project-challenge" rows="3" placeholder="What difficulty did this project address?..." class="w-full admin-input"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">THE SOLUTION (Modal details)</label>
+                        <textarea id="form-project-solution" rows="3" placeholder="How did you solve the problem?..." class="w-full admin-input"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">TECH STACK (Comma-separated list)</label>
+                        <input type="text" id="form-project-tech" placeholder="Arduino, C++, ESP32, PID" class="w-full admin-input">
+                    </div>
+
+                    <div class="flex items-center gap-2 pt-2">
+                        <input type="checkbox" id="form-project-featured" class="w-4 h-4 rounded border-2 border-[#1E293B] bg-white text-[#8B5CF6] focus:ring-[#8B5CF6]">
+                        <label for="form-project-featured" class="text-sm font-bold text-[#1E293B]">Feature this project on the homepage</label>
+                    </div>
                 </div>
-                <div class="bg-[#0b0f17] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-gray-800">
-                    <button type="button" class="inline-flex w-full justify-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-300 hover:bg-gray-700 sm:w-auto" onclick="closeModal('modal-soccer')">Close</button>
+
+                <div class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="saveProjectForm()" class="btn-candy px-6 py-2 text-sm">
+                        Save Project
+                    </button>
+                    <button type="button" onclick="closeProjectForm()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="py-6 bg-dark-bg border-t border-gray-800 text-center">
-        <p class="text-gray-600 text-sm">© <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol.</p>
+    <!-- Footer -->
+    <footer class="py-10 bg-white border-t-2 border-[#1E293B] text-center space-y-4">
+        <p class="text-[#64748B] text-sm font-medium">© <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol. All rights reserved.</p>
+        <div>
+            <button onclick="openAdminLogin()" class="text-xs text-[#64748B] hover:text-[#8B5CF6] transition-all flex items-center gap-1 mx-auto font-mono font-bold">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Portal
+            </button>
+        </div>
     </footer>
 
     <script src="script.js"></script>

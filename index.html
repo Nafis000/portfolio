@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafis Islam Nitol | Robotics & Automation Portfolio</title>
-    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>Nafis Islam Nitol | Portfolio</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -18,453 +24,694 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: {
-                            bg: '#0b0f17',
-                            card: '#111620',
-                            border: '#1f2937'
+                        paper: '#FFFDF5',
+                        slate: {
+                            800: '#1E293B',
+                            900: '#0F172A'
                         },
-                        neon: {
-                            cyan: '#06b6d4', // Cyan-500
-                            purple: '#a855f7', // Purple-500
-                            green: '#22c55e'  // Green-500
+                        violet: {
+                            500: '#8B5CF6',
+                            600: '#7C3AED'
+                        },
+                        pink: {
+                            400: '#F472B6',
+                            500: '#EC4899'
+                        },
+                        amber: {
+                            400: '#FBBF24',
+                            500: '#F59E0B'
+                        },
+                        mint: {
+                            400: '#34D399',
+                            500: '#10B981'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     },
                     boxShadow: {
-                        'neon-cyan': '0 0 10px rgba(6, 182, 212, 0.5)',
-                        'neon-purple': '0 0 10px rgba(168, 85, 247, 0.5)',
-                        'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
+                        'pop': '4px 4px 0px 0px #1E293B',
+                        'pop-hover': '6px 6px 0px 0px #1E293B',
+                        'pop-active': '2px 2px 0px 0px #1E293B',
+                        'pop-lg': '8px 8px 0px 0px #1E293B',
+                        'pop-pink': '6px 6px 0px 0px #F472B6',
+                        'pop-yellow': '6px 6px 0px 0px #FBBF24',
+                        'pop-violet': '6px 6px 0px 0px #8B5CF6',
+                        'pop-mint': '6px 6px 0px 0px #34D399'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="antialiased overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
-        <div class="glass-panel border-b border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex-shrink-0 font-mono font-bold text-xl tracking-tighter text-neon-cyan">
-                        &lt;NITOL/&gt;
+<body class="antialiased overflow-x-hidden bg-[#FFFDF5] text-[#1E293B]">
+
+    <!-- Playful Top Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 px-4 py-3" id="navbar">
+        <div
+            class="max-w-7xl mx-auto bg-white border-2 border-[#1E293B] rounded-full shadow-[4px_4px_0px_0px_#1E293B] px-6 py-2">
+            <div class="flex items-center justify-between h-12">
+                <a href="#home"
+                    class="font-heading font-extrabold text-2xl tracking-tight text-[#8B5CF6] hover:scale-105 transition-transform flex items-center gap-1">
+                    <span class="w-3 h-3 rounded-full bg-[#F472B6] border-2 border-[#1E293B] inline-block"></span>
+                    &lt;NITOL/&gt;
+                </a>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-6">
+                        <a href="#home"
+                            class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Home</a>
+                        <a href="#about"
+                            class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">About</a>
+                        <a href="projects.html"
+                            class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Projects</a>
+                        <a href="certifications.html"
+                            class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Certifications</a>
+                        <a href="#services"
+                            class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Services</a>
+                        <a href="#contact" class="btn-candy px-5 py-1.5 text-xs">Contact Me</a>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-8">
-                            <a href="#home" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                            <a href="#about" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                            <a href="projects.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                            <a href="certifications.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
-                            <a href="#services" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                            <a href="#contact" class="px-4 py-2 border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all text-sm font-medium shadow-neon-cyan">Contact</a>
-                        </div>
-                    </div>
-                    <div class="-mr-2 flex md:hidden">
-                        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
-                            <i data-lucide="menu"></i>
-                        </button>
-                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-xl text-[#1E293B] border-2 border-[#1E293B] bg-[#FBBF24] hover:bg-[#F472B6] transition-colors focus:outline-none"
+                        aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="md:hidden hidden glass-panel border-b border-gray-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-neon-cyan">Home</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-neon-cyan">About</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-neon-cyan">Projects</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-neon-cyan">Contact Me</a>
+        <div class="md:hidden hidden max-w-7xl mx-auto mt-2 bg-white border-2 border-[#1E293B] rounded-2xl shadow-[4px_4px_0px_0px_#1E293B] p-4"
+            id="mobile-menu">
+            <div class="space-y-2">
+                <a href="#home"
+                    class="block px-4 py-2 rounded-xl text-base font-bold hover:bg-[#F1F5F9] hover:text-[#8B5CF6]">Home</a>
+                <a href="#about"
+                    class="block px-4 py-2 rounded-xl text-base font-bold hover:bg-[#F1F5F9] hover:text-[#8B5CF6]">About</a>
+                <a href="projects.html"
+                    class="block px-4 py-2 rounded-xl text-base font-bold hover:bg-[#F1F5F9] hover:text-[#8B5CF6]">Projects</a>
+                <a href="certifications.html"
+                    class="block px-4 py-2 rounded-xl text-base font-bold hover:bg-[#F1F5F9] hover:text-[#8B5CF6]">Certifications</a>
+                <a href="#contact"
+                    class="block px-4 py-2 rounded-xl text-base font-bold bg-[#8B5CF6] text-white text-center">Contact
+                    Me</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#1f2937 1px, transparent 1px), linear-gradient(90deg, #1f2937 1px, transparent 1px); background-size: 40px 40px;"></div>
-        
+    <!-- Sticky Admin Active Bar -->
+    <div id="admin-bar"
+        class="fixed w-full z-40 top-20 bg-[#FBBF24] border-y-2 border-[#1E293B] px-4 py-2.5 hidden shadow-[0_4px_0_0_#1E293B] transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#34D399] border-2 border-[#1E293B] animate-pulse"></span>
+                <span class="text-xs font-mono font-bold text-[#1E293B] tracking-widest uppercase">Admin Active</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <button onclick="openEducationForm()"
+                    class="px-3 py-1.5 bg-[#8B5CF6] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#7C3AED] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Education
+                </button>
+                <button onclick="openExperienceForm()"
+                    class="px-3 py-1.5 bg-[#F472B6] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#EC4899] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Experience
+                </button>
+                <button onclick="exportProjectsJSON()"
+                    class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Export JSON Data
+                </button>
+                <button onclick="triggerImportJSON()"
+                    class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="upload" class="w-3.5 h-3.5"></i> Import JSON
+                </button>
+                <input type="file" id="import-json-file" accept=".json" class="hidden">
+                <button onclick="disableAdminMode()"
+                    class="px-3 py-1.5 bg-[#EF4444] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-red-600 transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-16 relative overflow-hidden">
+        <!-- Playful Background Circles & Shapes -->
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-[#FBBF24]/30 rounded-full blur-2xl pointer-events-none">
+        </div>
+        <div class="absolute top-1/3 right-4 w-72 h-72 bg-[#F472B6]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 left-1/4 w-80 h-80 bg-[#8B5CF6]/15 rounded-full blur-3xl pointer-events-none">
+        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-                
+
                 <div class="lg:w-1/2 space-y-6 text-center lg:text-left reveal active">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-gray-700 bg-gray-900/50 text-xs font-mono text-neon-cyan mb-2">
-                        <span class="relative flex h-2 w-2 mr-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    <div
+                        class="inline-flex items-center px-4 py-1.5 rounded-full border-2 border-[#1E293B] bg-[#FBBF24] text-xs font-bold text-[#1E293B] shadow-[3px_3px_0px_0px_#1E293B] mb-2">
+                        <span class="relative flex h-2.5 w-2.5 mr-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-900 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#1E293B]"></span>
                         </span>
                         Online & Ready to Prototype
                     </div>
-                    
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white">
-                        Nafis Islam <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Nitol</span>
+
+                    <h1
+                        class="text-4xl md:text-6xl font-heading font-extrabold tracking-tight text-[#1E293B] leading-tight">
+                        Nafis Islam <span class="text-[#8B5CF6] decoration-[#F472B6]">Nitol</span>
                     </h1>
-                    <h2 class="text-xl md:text-2xl text-gray-400 font-light">
+                    <h2 class="text-xl md:text-2xl text-[#64748B] font-medium">
                         Electrical Engineering Student <br class="hidden md:block" />
-                        <span class="text-neon-cyan font-mono text-lg">Stipendium Hungaricum Scholar</span>
+                        <span
+                            class="inline-block mt-2 px-3 py-1 bg-[#F472B6] text-white rounded-full border-2 border-[#1E293B] font-mono text-sm font-bold shadow-[2px_2px_0px_0px_#1E293B]">Stipendium
+                            Hungaricum Scholar</span>
                     </h2>
-                    
-                    <p class="text-gray-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                        Building intelligent robots and automation systems. Specialized in <span class="text-white font-medium">Arduino, ESP32, and PID control</span>. Turning complex logic into moving reality.
+
+                    <p class="text-[#64748B] max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+                        Building intelligent robots and automation systems. Specialized in <span
+                            class="text-[#1E293B] font-bold bg-[#FBBF24]/40 px-1.5 py-0.5 rounded">Arduino, ESP32, and
+                            PID control</span>. Turning complex logic into moving reality.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <a href="projects.html" class="px-8 py-3 bg-neon-cyan text-black rounded hover:border-white hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+                        <a href="projects.html" class="btn-candy px-8 py-3.5 text-base gap-2">
                             <i data-lucide="cpu" class="w-5 h-5"></i> View Projects
                         </a>
-                        <a href="#contact" class="px-8 py-3 border border-gray-600 rounded hover:border-white hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+                        <a href="#contact" class="btn-secondary-pop px-8 py-3.5 text-base gap-2">
                             <i data-lucide="mail" class="w-5 h-5"></i> Contact Me
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8">
-                        <div class="glass-panel p-4 rounded-lg border-l-2 border-neon-cyan">
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">Focus</div>
-                            <div class="font-bold text-white">Robotics & Automation</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+                        <div
+                            class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#8B5CF6]">
+                            <div class="text-xs text-[#64748B] uppercase font-bold tracking-wider mb-1">Focus</div>
+                            <div class="font-heading font-bold text-[#1E293B]">Robotics & Automation</div>
                         </div>
-                        <div class="glass-panel p-4 rounded-lg border-l-2 border-neon-purple">
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">Core Tech</div>
-                            <div class="font-bold text-white">Arduino • ESP32 • C++</div>
+                        <div
+                            class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#F472B6]">
+                            <div class="text-xs text-[#64748B] uppercase font-bold tracking-wider mb-1">Core Tech</div>
+                            <div class="font-heading font-bold text-[#1E293B]">Arduino • ESP32 • C++</div>
                         </div>
-                        <div class="glass-panel p-4 rounded-lg border-l-2 border-neon-green">
-                            <div class="text-xs text-gray-500 uppercase tracking-wider">Services</div>
-                            <div class="font-bold text-white">Tutoring • Prototyping</div>
+                        <div
+                            class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#34D399]">
+                            <div class="text-xs text-[#64748B] uppercase font-bold tracking-wider mb-1">Services</div>
+                            <div class="font-heading font-bold text-[#1E293B]">Tutoring • Prototyping</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="lg:w-5/12 reveal active delay-200 flex justify-center">
                     <div class="relative w-64 h-64 md:w-80 md:h-80">
-                        <div class="absolute inset-0 rounded-full border-2 border-neon-cyan/30 blur-sm animate-pulse"></div>
-                        <div class="absolute -inset-4 rounded-full border border-neon-purple/20 border-dashed animate-[spin_10s_linear_infinite]"></div>
-                        <div class="w-full h-full rounded-full overflow-hidden border-4 border-gray-800 bg-gray-800 shadow-2xl relative">
-                            <img src="pictures/profile2.jpg" alt="Nafis Islam Nitol" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
-                            
-                            <div class="absolute inset-0 flex items-center justify-center text-gray-600 bg-gray-900 -z-10">
+                        <!-- Playful Background Decorative Shapes -->
+                        <div
+                            class="absolute -inset-4 bg-[#FBBF24] rounded-full border-2 border-[#1E293B] shadow-[6px_6px_0px_0px_#1E293B]">
+                        </div>
+                        <div class="absolute -inset-1 bg-[#8B5CF6] rounded-full border-2 border-[#1E293B]"></div>
+
+                        <div
+                            class="w-full h-full rounded-full overflow-hidden border-4 border-[#1E293B] bg-white shadow-2xl relative z-10">
+                            <img src="pictures/profile3.png" alt="Nafis Islam Nitol" class="w-full h-full object-cover">
+
+                            <div
+                                class="absolute inset-0 flex items-center justify-center text-[#64748B] bg-white -z-10">
                                 <i data-lucide="user" class="w-24 h-24"></i>
                             </div>
                         </div>
-                        
-                        <div class="absolute bottom-4 right-2 glass-panel px-4 py-2 rounded-full border border-gray-700 flex items-center gap-2">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-xs font-mono font-bold">University of Pécs</span>
+
+                        <div
+                            class="absolute -bottom-2 -right-4 z-20 bg-[#34D399] px-4 py-2 rounded-full border-2 border-[#1E293B] shadow-[4px_4px_0px_0px_#1E293B] flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-white border-2 border-[#1E293B]"></div>
+                            <span class="text-xs font-mono font-extrabold text-[#1E293B]">University of Pécs</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <a href="#about" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-white transition-colors animate-bounce">
-            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+
+        <a href="#about"
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-[#1E293B] hover:text-[#8B5CF6] transition-colors animate-bounce p-2 bg-white border-2 border-[#1E293B] rounded-full shadow-[2px_2px_0px_0px_#1E293B]">
+            <i data-lucide="chevron-down" class="w-6 h-6"></i>
         </a>
     </section>
 
-    <section id="about" class="py-20 bg-dark-bg relative">
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#FFFDF5] relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl font-bold text-white mb-2">About Me</h2>
-                <div class="h-1 w-20 bg-neon-cyan mx-auto rounded"></div>
+                <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-[#1E293B] mb-2">About Me</h2>
+                <div
+                    class="h-2 w-24 bg-[#F472B6] mx-auto rounded-full border-2 border-[#1E293B] shadow-[2px_2px_0px_0px_#1E293B]">
+                </div>
             </div>
-            
-            <div class="glass-panel p-8 rounded-xl border border-gray-800 shadow-lg reveal">
-                <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                    I’m currently studying <span class="text-neon-cyan font-semibold">Electrical Engineering</span> at the University of Pécs under the prestigious Stipendium Hungaricum scholarship. My passion lies at the intersection of hardware and software—specifically in robotics and automation systems. I believe in a "learning-by-building" approach, constantly experimenting with embedded programming and motor control to create functional prototypes.
+
+            <div
+                class="sticker-card p-8 md:p-10 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[6px_6px_0px_0px_#1E293B] reveal">
+                <p class="text-[#1E293B] text-lg leading-relaxed mb-6 font-medium">
+                    I’m currently studying <span
+                        class="bg-[#8B5CF6] text-white px-2 py-0.5 rounded-md font-bold">Electrical Engineering</span>
+                    at the University of Pécs under the prestigious Stipendium Hungaricum scholarship. My passion lies
+                    at the intersection of hardware and software—specifically in robotics and automation systems. I
+                    believe in a "learning-by-building" approach, constantly experimenting with embedded programming and
+                    motor control to create functional prototypes.
                 </p>
-                
-                <h3 class="text-white font-bold mb-4 flex items-center gap-2">
-                    <i data-lucide="target" class="text-neon-purple w-5 h-5"></i> What I'm Focused On
+
+                <h3 class="text-[#1E293B] font-heading font-bold text-xl mb-4 flex items-center gap-2">
+                    <span
+                        class="w-8 h-8 rounded-full bg-[#FBBF24] border-2 border-[#1E293B] flex items-center justify-center shadow-[2px_2px_0px_0px_#1E293B]">
+                        <i data-lucide="target" class="text-[#1E293B] w-4 h-4"></i>
+                    </span>
+                    What I'm Focused On
                 </h3>
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-400 mb-6">
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> Robotics & Automation Systems</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> Embedded Programming (C/C++)</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> Motor Control & PID Algorithms</li>
-                    <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> Smart Sensors & Actuators</li>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[#1E293B] font-medium mb-6">
+                    <li class="flex items-center gap-2.5">
+                        <span class="w-4 h-4 rounded-full bg-[#8B5CF6] border-2 border-[#1E293B] flex-shrink-0"></span>
+                        Robotics & Automation Systems
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <span class="w-4 h-4 rounded-full bg-[#F472B6] border-2 border-[#1E293B] flex-shrink-0"></span>
+                        Embedded Programming (C/C++)
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <span class="w-4 h-4 rounded-full bg-[#FBBF24] border-2 border-[#1E293B] flex-shrink-0"></span>
+                        Motor Control & PID Algorithms
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <span class="w-4 h-4 rounded-full bg-[#34D399] border-2 border-[#1E293B] flex-shrink-0"></span>
+                        Smart Sensors & Actuators
+                    </li>
                 </ul>
 
-                <div class="border-t border-gray-800 pt-4 mt-4">
-                    <span class="text-xs text-gray-500 uppercase font-bold mr-3">Currently Learning:</span>
+                <div class="border-t-2 border-[#1E293B] pt-4 mt-4">
+                    <span class="text-xs text-[#64748B] uppercase font-heading font-bold mr-3">Currently
+                        Learning:</span>
                     <span class="inline-flex flex-wrap gap-2">
-                        <span class="px-2 py-1 rounded bg-gray-800 text-xs text-gray-300 border border-gray-700">Advanced Control Systems</span>
-                        <span class="px-2 py-1 rounded bg-gray-800 text-xs text-gray-300 border border-gray-700">Robotics Mechanics</span>
-                        <span class="px-2 py-1 rounded bg-gray-800 text-xs text-gray-300 border border-gray-700">Autonomy Basics</span>
+                        <span
+                            class="px-3 py-1 rounded-full bg-[#F1F5F9] text-xs font-bold text-[#1E293B] border-2 border-[#1E293B]">Advanced
+                            Control Systems</span>
+                        <span
+                            class="px-3 py-1 rounded-full bg-[#F1F5F9] text-xs font-bold text-[#1E293B] border-2 border-[#1E293B]">Robotics
+                            Mechanics</span>
+                        <span
+                            class="px-3 py-1 rounded-full bg-[#F1F5F9] text-xs font-bold text-[#1E293B] border-2 border-[#1E293B]">Autonomy
+                            Basics</span>
                     </span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-[#0d121c]">
+    <!-- Education and Experience Grid -->
+    <section class="py-20 bg-[#F1F5F9]/50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
+
+                <!-- Education Dynamic Timeline -->
                 <div class="reveal">
-                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <i data-lucide="graduation-cap" class="text-neon-cyan"></i> Education
+                    <h3 class="text-2xl font-heading font-extrabold text-[#1E293B] mb-8 flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-full bg-[#8B5CF6] text-white border-2 border-[#1E293B] flex items-center justify-center shadow-[3px_3px_0px_0px_#1E293B]">
+                            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                        </span>
+                        Education
                     </h3>
-                    <div class="space-y-8 border-l-2 border-gray-800 ml-3 pl-8 relative">
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-0 bg-dark-bg border-2 border-neon-cyan w-6 h-6 rounded-full flex items-center justify-center">
-                                <div class="w-2 h-2 bg-neon-cyan rounded-full animate-pulse"></div>
-                            </span>
-                            <div class="glass-panel p-5 rounded-lg border border-gray-800 hover:border-neon-cyan/50 transition-colors">
-                                <h4 class="text-white font-bold text-lg">BSc in Electrical Engineering</h4>
-                                <div class="text-neon-cyan text-sm mb-1">University of Pécs (Hungary)</div>
-                                <p class="text-xs text-gray-500 font-mono mb-2">Current Student</p>
-                                <div class="inline-block bg-purple-900/30 text-purple-300 text-xs px-2 py-1 rounded border border-purple-500/30">
-                                    Stipendium Hungaricum Scholar
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-0 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
-                            <div class="glass-panel p-5 rounded-lg border border-gray-800">
-                                <h4 class="text-gray-200 font-bold">BSc in CSE</h4>
-                                <div class="text-gray-400 text-sm mb-1">University of Asia Pacific</div>
-                                <p class="text-xs text-gray-500 font-mono">Jul 2024 – Jun 2025 (2 Semesters)</p>
-                                <p class="text-sm text-gray-400 mt-2">CGPA: <span class="text-white font-bold">3.94</span></p>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <span class="absolute -left-[41px] top-0 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
-                            <div class="glass-panel p-5 rounded-lg border border-gray-800">
-                                <h4 class="text-gray-200 font-bold">HSC (Science)</h4>
-                                <div class="text-gray-400 text-sm mb-1">Shaheed Police Smrity College</div>
-                                <p class="text-xs text-gray-500 font-mono">2022 • GPA 5.00</p>
-                            </div>
-                        </div>
+                    <div id="education-timeline" class="space-y-8 border-l-4 border-[#1E293B] ml-4 pl-8 relative">
+                        <!-- Loaded Dynamically -->
                     </div>
                 </div>
-                
 
+                <!-- Experience Dynamic List -->
                 <div class="reveal delay-200">
-                    <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                        <i data-lucide="briefcase" class="text-neon-purple"></i> Experience
+                    <h3 class="text-2xl font-heading font-extrabold text-[#1E293B] mb-8 flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-full bg-[#F472B6] text-white border-2 border-[#1E293B] flex items-center justify-center shadow-[3px_3px_0px_0px_#1E293B]">
+                            <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        </span>
+                        Experience
                     </h3>
-                    <div class="space-y-6">
-                        <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-purple/50 transition-all group">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="text-xl font-bold text-white group-hover:text-neon-purple transition-colors">Customer Relationship Officer</h4>
-                                <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">Feb '24 - Sept '24</span>
-                            </div>
-                            <div class="text-neon-purple/80 text-sm font-medium mb-4">Synergy Solutions</div>
-                            <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm">
-                                <li>Managed customer communication and relationship support.</li>
-                                <li>Improved coordination, problem-solving, and professional communication skills.</li>
-                            </ul>
-                        </div>
 
-                        <div class="mt-12">
-                            <h3 class="text-xl font-bold text-white mb-6">Technical Skills</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="p-4 rounded bg-gray-900 border border-gray-800">
-                                    <h5 class="text-xs text-gray-500 uppercase mb-3">Programming</h5>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">Python</span>
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">C / C++</span>
-                                    </div>
-                                </div>
-                                <div class="p-4 rounded bg-gray-900 border border-gray-800">
-                                    <h5 class="text-xs text-gray-500 uppercase mb-3">Embedded & Robotics</h5>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-sm text-neon-cyan bg-cyan-900/20 px-2 py-1 rounded border border-cyan-900/50">Arduino</span>
-                                        <span class="text-sm text-neon-cyan bg-cyan-900/20 px-2 py-1 rounded border border-cyan-900/50">ESP32</span>
-                                        <span class="text-sm text-neon-cyan bg-cyan-900/20 px-2 py-1 rounded border border-cyan-900/50">PID</span>
-                                    </div>
-                                </div>
-                                <div class="p-4 rounded bg-gray-900 border border-gray-800">
-                                    <h5 class="text-xs text-gray-500 uppercase mb-3">Productivity</h5>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">MS Office</span>
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">Teamwork</span>
-                                    </div>
-                                </div>
-                                <div class="p-4 rounded bg-gray-900 border border-gray-800">
-                                    <h5 class="text-xs text-gray-500 uppercase mb-3">Web Basics</h5>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">HTML</span>
-                                        <span class="text-sm text-white bg-gray-800 px-2 py-1 rounded border border-gray-700">CSS</span>
-                                    </div>
+                    <div id="experience-list" class="space-y-6">
+                        <!-- Loaded Dynamically -->
+                    </div>
+
+                    <!-- Skills Cards -->
+                    <div class="mt-12">
+                        <h3 class="text-xl font-heading font-extrabold text-[#1E293B] mb-6">Technical Skills</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div
+                                class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#8B5CF6]">
+                                <h5 class="text-xs font-heading font-bold text-[#8B5CF6] uppercase mb-3 tracking-wider">
+                                    Programming</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">Python</span>
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">C
+                                        / C++</span>
                                 </div>
                             </div>
+                            <div
+                                class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#F472B6]">
+                                <h5 class="text-xs font-heading font-bold text-[#F472B6] uppercase mb-3 tracking-wider">
+                                    Embedded & Robotics</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">Arduino</span>
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">ESP32</span>
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">PID</span>
+                                </div>
+                            </div>
+                            <div
+                                class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#FBBF24]">
+                                <h5 class="text-xs font-heading font-bold text-[#D97706] uppercase mb-3 tracking-wider">
+                                    Productivity</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">MS
+                                        Office</span>
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">Teamwork</span>
+                                </div>
+                            </div>
+                            <div
+                                class="sticker-card p-4 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[4px_4px_0px_0px_#34D399]">
+                                <h5 class="text-xs font-heading font-bold text-[#059669] uppercase mb-3 tracking-wider">
+                                    Web Basics</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">HTML</span>
+                                    <span
+                                        class="text-xs font-bold text-[#1E293B] bg-[#FFFDF5] px-2.5 py-1 rounded-full border-2 border-[#1E293B]">CSS</span>
+                                </div>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="mt-8">
-                            <a href="certifications.html" class="inline-flex items-center gap-2 text-sm text-neon-cyan border border-gray-700 bg-gray-900/50 px-4 py-2 rounded hover:border-neon-cyan hover:bg-neon-cyan hover:text-black transition-all">
-                                <i data-lucide="award" class="w-4 h-4"></i> View Certifications
-                            </a>
-                        </div>
-
+                    <div class="mt-8">
+                        <a href="certifications.html" class="btn-secondary-pop px-6 py-2.5 text-sm gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-[#8B5CF6]"></i> View Certifications
+                        </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-20 bg-dark-bg">
+    <!-- Dynamic Featured Projects Grid -->
+    <section id="projects" class="py-20 bg-[#FFFDF5]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
                 <div>
-                    <h2 class="text-3xl font-bold text-white">Featured Projects</h2>
-                    <p class="text-gray-400 mt-2">Top robotics prototyping and control systems.</p>
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-[#1E293B]">Featured Projects</h2>
+                    <p class="text-[#64748B] mt-2 font-medium">Top robotics prototyping and control systems.</p>
                 </div>
-                <a href="projects.html" class="hidden md:flex mt-4 md:mt-0 text-neon-cyan text-sm items-center hover:underline">
-                    View Full Portfolio <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
+                <a href="projects.html"
+                    class="hidden md:flex mt-4 md:mt-0 font-bold text-sm text-[#8B5CF6] items-center hover:underline gap-1">
+                    View Full Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                
-                <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-cyan transition-all duration-300 hover:-translate-y-2 reveal">
-                    <div class="h-40 bg-gray-800 relative overflow-hidden flex items-center justify-center">
-                        <i data-lucide="activity" class="w-12 h-12 text-gray-600"></i>
-                        <div class="absolute top-2 right-2 z-20 flex gap-1">
-                            <span class="text-[10px] bg-black/70 text-neon-cyan px-2 py-1 rounded backdrop-blur-md">PID</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-cyan transition-colors">Line Follower Robot</h3>
-                        <p class="text-gray-400 text-sm mb-4 h-10 line-clamp-2">
-                            Autonomous robot using Arduino Nano and PID algorithms for smooth tracking.
-                        </p>
-                        <a href="projects.html" class="block w-full py-2 text-sm bg-gray-800 text-white text-center rounded hover:bg-neon-cyan hover:text-black transition-colors">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-purple transition-all duration-300 hover:-translate-y-2 reveal delay-100">
-                    <div class="h-40 bg-gray-800 relative overflow-hidden flex items-center justify-center">
-                        <i data-lucide="wifi" class="w-12 h-12 text-gray-600"></i>
-                        <div class="absolute top-2 right-2 z-20 flex gap-1">
-                            <span class="text-[10px] bg-black/70 text-neon-purple px-2 py-1 rounded backdrop-blur-md">IoT</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-purple transition-colors">ESP32 Wi-Fi Rover</h3>
-                        <p class="text-gray-400 text-sm mb-4 h-10 line-clamp-2">
-                            Mini rover remotely controlled via Wi-Fi with an onboard OLED display.
-                        </p>
-                        <a href="projects.html" class="block w-full py-2 text-sm bg-gray-800 text-white text-center rounded hover:bg-neon-purple hover:text-black transition-colors">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-
-                <div class="glass-panel rounded-xl overflow-hidden border border-gray-800 group hover:border-neon-green transition-all duration-300 hover:-translate-y-2 reveal delay-200">
-                    <div class="h-40 bg-gray-800 relative overflow-hidden flex items-center justify-center">
-                        <i data-lucide="dribbble" class="w-12 h-12 text-gray-600"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-green transition-colors">RC Soccer Bot</h3>
-                        <p class="text-gray-400 text-sm mb-4 h-10 line-clamp-2">
-                            High-torque soccer robot designed for speed and responsiveness.
-                        </p>
-                        <a href="projects.html" class="block w-full py-2 text-sm bg-gray-800 text-white text-center rounded hover:bg-neon-green hover:text-black transition-colors">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-
+            <div id="featured-projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Dynamically Rendered featured projects list -->
             </div>
 
             <div class="flex flex-col items-center justify-center reveal">
-                <p class="text-gray-500 text-sm mb-4">Want to see more technical details and other experiments?</p>
-                <a href="projects.html" class="inline-flex items-center gap-2 px-8 py-3 border border-gray-700 rounded-full text-white hover:border-neon-cyan hover:bg-neon-cyan/10 hover:text-neon-cyan transition-all group">
+                <p class="text-[#64748B] text-sm mb-4 font-medium">Want to see more technical details and other
+                    experiments?</p>
+                <a href="projects.html" class="btn-candy px-8 py-3.5 text-sm gap-2">
                     Explore All Projects
-                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
 
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-[#0b0f17]">
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#F1F5F9]/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl font-bold text-white">Services</h2>
-                <p class="text-gray-400 mt-2">How I can help you build or learn.</p>
+                <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-[#1E293B]">Services</h2>
+                <p class="text-[#64748B] mt-2 font-medium">How I can help you build or learn.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="glass-panel p-8 rounded-xl border border-gray-800 text-center hover:bg-gray-800/50 transition-colors reveal">
-                    <div class="w-16 h-16 bg-neon-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6 text-neon-cyan">
+                <div
+                    class="sticker-card p-8 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[6px_6px_0px_0px_#8B5CF6] text-center reveal">
+                    <div
+                        class="w-16 h-16 bg-[#8B5CF6] text-white border-2 border-[#1E293B] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[3px_3px_0px_0px_#1E293B]">
                         <i data-lucide="book-open" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Tutoring & Mentorship</h3>
-                    <p class="text-gray-400 text-sm mb-6">
-                        I offer simplified sessions on Programming (Python, C/C++), Arduino/ESP32 basics, and an introduction to PID control systems.
+                    <h3 class="text-xl font-heading font-bold text-[#1E293B] mb-2">Tutoring & Mentorship</h3>
+                    <p class="text-[#64748B] text-sm mb-6 font-medium leading-relaxed">
+                        I offer simplified sessions on Programming (Python, C/C++), Arduino/ESP32 basics, and an
+                        introduction to PID control systems.
                     </p>
-                    <a href="#contact" class="inline-block px-6 py-2 border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all text-sm font-medium">Request Tutoring</a>
+                    <a href="#contact" class="btn-candy px-6 py-2.5 text-xs">Request Tutoring</a>
                 </div>
 
-                <div class="glass-panel p-8 rounded-xl border border-gray-800 text-center hover:bg-gray-800/50 transition-colors reveal delay-100">
-                    <div class="w-16 h-16 bg-neon-purple/10 rounded-full flex items-center justify-center mx-auto mb-6 text-neon-purple">
+                <div
+                    class="sticker-card p-8 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[6px_6px_0px_0px_#F472B6] text-center reveal delay-100">
+                    <div
+                        class="w-16 h-16 bg-[#F472B6] text-white border-2 border-[#1E293B] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[3px_3px_0px_0px_#1E293B]">
                         <i data-lucide="settings" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Robotics Prototyping</h3>
-                    <p class="text-gray-400 text-sm mb-6">
-                        Need a sensor integrated or a basic robot chassis assembled? I can help with prototyping using Arduino and ESP32 ecosystems.
+                    <h3 class="text-xl font-heading font-bold text-[#1E293B] mb-2">Robotics Prototyping</h3>
+                    <p class="text-[#64748B] text-sm mb-6 font-medium leading-relaxed">
+                        Need a sensor integrated or a basic robot chassis assembled? I can help with prototyping using
+                        Arduino and ESP32 ecosystems.
                     </p>
-                    <a href="#contact" class="inline-block px-6 py-2 border border-neon-purple text-neon-purple rounded hover:bg-neon-purple hover:text-black transition-all text-sm font-medium">Discuss a Prototype</a>
+                    <a href="#contact" class="btn-secondary-pop px-6 py-2.5 text-xs">Discuss a Prototype</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-[#0d121c]">
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#FFFDF5]">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10 reveal">
-                <h2 class="text-3xl font-bold text-white">Get In Touch</h2>
-                <p class="text-gray-400 mt-2">I usually reply within 24–48 hours.</p>
+                <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-[#1E293B]">Get In Touch</h2>
+                <p class="text-[#64748B] mt-2 font-medium">I usually reply within 24–48 hours.</p>
             </div>
 
-            <div class="glass-panel p-8 rounded-xl border border-gray-800 reveal">
+            <div
+                class="sticker-card p-8 md:p-10 rounded-2xl border-2 border-[#1E293B] bg-white shadow-[8px_8px_0px_0px_#1E293B] reveal">
                 <form class="space-y-6">
+                    <input type="text" name="_honeypot" id="contact-honeypot" class="hidden" tabindex="-1" autocomplete="off">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
-                            <input type="text" class="w-full bg-gray-900 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-all">
+                            <label
+                                class="block text-xs font-heading font-extrabold text-[#1E293B] uppercase tracking-wider mb-2">Name</label>
+                            <input type="text" class="w-full admin-input" placeholder="Your Name" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                            <input type="email" class="w-full bg-gray-900 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-all">
+                            <label
+                                class="block text-xs font-heading font-extrabold text-[#1E293B] uppercase tracking-wider mb-2">Email</label>
+                            <input type="email" class="w-full admin-input" placeholder="you@example.com" required>
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-2">Message</label>
-                        <textarea rows="4" class="w-full bg-gray-900 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan transition-all"></textarea>
+                        <label
+                            class="block text-xs font-heading font-extrabold text-[#1E293B] uppercase tracking-wider mb-2">Message</label>
+                        <textarea rows="4" class="w-full admin-input" placeholder="How can I help you?" required></textarea>
                     </div>
-                    <button type="button" class="w-full py-3 bg-neon-cyan text-black font-bold rounded hover:bg-cyan-400 transition-colors shadow-neon-cyan">
+                    <button type="submit" class="btn-candy w-full py-3.5 text-base">
                         Send Message
                     </button>
                 </form>
 
-                <div class="mt-8 flex justify-center space-x-8 border-t border-gray-800 pt-8">
-                    <a href="#" class="text-gray-400 hover:text-neon-cyan transition-colors flex items-center gap-2">
-                        <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+                <div class="mt-8 flex justify-center space-x-8 border-t-2 border-[#1E293B] pt-8">
+                    <a href="#"
+                        class="text-[#1E293B] hover:text-[#8B5CF6] font-bold transition-colors flex items-center gap-2">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-[#8B5CF6]"></i> LinkedIn
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                        <i data-lucide="mail" class="w-5 h-5"></i> Email
+                    <a href="mailto:nafisislamnitol@gmail.com"
+                        class="text-[#1E293B] hover:text-[#8B5CF6] font-bold transition-colors flex items-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5 text-[#F472B6]"></i> Email
                     </a>
                 </div>
             </div>
-            
+
             <div class="text-center mt-12">
-                <button class="text-sm text-gray-500 hover:text-white flex items-center justify-center w-full gap-2">
+                <button class="btn-secondary-pop px-6 py-2.5 text-xs mx-auto gap-2">
                     <i data-lucide="download" class="w-4 h-4"></i> Download Resume
                 </button>
             </div>
         </div>
     </section>
 
-    <footer class="py-6 bg-dark-bg border-t border-gray-800 text-center">
-        <p class="text-gray-600 text-sm">
-            © <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol. Built with <i data-lucide="zap" class="w-3 h-3 inline text-yellow-500"></i> & Tailwind.
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeAdminLogin()">
+        </div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div
+                class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-md">
+                <div
+                    class="bg-[#FBBF24] px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6 text-[#1E293B] flex items-center gap-2">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Admin Access
+                    </h3>
+                    <button onclick="closeAdminLogin()"
+                        class="text-[#1E293B] hover:bg-white/50 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-heading font-extrabold uppercase text-[#1E293B] mb-2">Enter
+                            Admin Password</label>
+                        <input type="password" id="admin-password" placeholder="••••••••" class="w-full admin-input">
+                    </div>
+                </div>
+                <div
+                    class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="verifyAdminPassword()" class="btn-candy px-6 py-2 text-sm">
+                        Verify
+                    </button>
+                    <button type="button" onclick="closeAdminLogin()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Form Modal (Add / Edit) -->
+    <div id="education-form-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeEducationForm()">
+        </div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div
+                class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div
+                    class="bg-[#8B5CF6] text-white px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6" id="edu-form-title">Add/Edit Education
+                        Entry</h3>
+                    <button onclick="closeEducationForm()"
+                        class="text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-4">
+                    <input type="hidden" id="form-edu-id">
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">DEGREE / STUDY FIELD
+                            *</label>
+                        <input type="text" id="form-edu-degree" placeholder="e.g. BSc in Electrical Engineering"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">INSTITUTION *</label>
+                        <input type="text" id="form-edu-institution" placeholder="e.g. University of Pécs"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">PERIOD / DATES *</label>
+                        <input type="text" id="form-edu-period" placeholder="e.g. Current Student, or 2022 - 2024"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">HIGHLIGHT TAG
+                            (Optional)</label>
+                        <input type="text" id="form-edu-tag" placeholder="e.g. Stipendium Hungaricum Scholar, GPA 4.00"
+                            class="w-full admin-input">
+                    </div>
+                </div>
+
+                <div
+                    class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="saveEducationForm()" class="btn-candy px-6 py-2 text-sm">
+                        Save Education
+                    </button>
+                    <button type="button" onclick="closeEducationForm()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Form Modal (Add / Edit) -->
+    <div id="experience-form-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeExperienceForm()">
+        </div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div
+                class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div
+                    class="bg-[#F472B6] text-white px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6" id="exp-form-title">Add/Edit Experience
+                        Entry</h3>
+                    <button onclick="closeExperienceForm()"
+                        class="text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div class="p-6 space-y-4">
+                    <input type="hidden" id="form-exp-id">
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">JOB ROLE / POSITION
+                            *</label>
+                        <input type="text" id="form-exp-role" placeholder="e.g. Customer Relationship Officer"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">COMPANY *</label>
+                        <input type="text" id="form-exp-company" placeholder="e.g. Synergy Solutions"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">PERIOD / DATES *</label>
+                        <input type="text" id="form-exp-period" placeholder="e.g. Feb '24 - Sept '24"
+                            class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">BULLET POINTS DESCRIPTION
+                            (One per line) *</label>
+                        <textarea id="form-exp-bullets" rows="4"
+                            placeholder="Managed customer relationships...&#10;Improved professional communication..."
+                            class="w-full admin-input"></textarea>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="saveExperienceForm()" class="btn-candy px-6 py-2 text-sm">
+                        Save Experience
+                    </button>
+                    <button type="button" onclick="closeExperienceForm()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-white border-t-2 border-[#1E293B] text-center space-y-4">
+        <p class="text-[#64748B] text-sm font-medium">
+            ©
+            <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol. All rights reserved.
         </p>
+        <div>
+            <a href="projects.html" onclick="sessionStorage.setItem('open_admin_login', 'true')"
+                class="text-xs text-[#64748B] hover:text-[#8B5CF6] transition-all inline-flex items-center gap-1 font-mono font-bold">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Portal
+            </a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

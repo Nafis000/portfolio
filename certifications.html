@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Certifications | Nafis Islam Nitol</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="style.css">
     
@@ -14,108 +17,187 @@
             theme: {
                 extend: {
                     colors: {
-                        dark: { bg: '#0b0f17', card: '#111620', border: '#1f2937' },
-                        neon: { cyan: '#06b6d4', purple: '#a855f7', green: '#22c55e' }
+                        paper: '#FFFDF5',
+                        slate: { 800: '#1E293B', 900: '#0F172A' },
+                        violet: { 500: '#8B5CF6', 600: '#7C3AED' },
+                        pink: { 400: '#F472B6', 500: '#EC4899' },
+                        amber: { 400: '#FBBF24', 500: '#F59E0B' },
+                        mint: { 400: '#34D399', 500: '#10B981' }
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-                    boxShadow: { 'glass': '0 4px 30px rgba(0, 0, 0, 0.1)' }
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'pop': '4px 4px 0px 0px #1E293B',
+                        'pop-hover': '6px 6px 0px 0px #1E293B',
+                        'pop-lg': '8px 8px 0px 0px #1E293B',
+                        'pop-pink': '6px 6px 0px 0px #F472B6',
+                        'pop-yellow': '6px 6px 0px 0px #FBBF24',
+                        'pop-violet': '6px 6px 0px 0px #8B5CF6',
+                        'pop-mint': '6px 6px 0px 0px #34D399'
+                    }
                 }
             }
         }
     </script>
 </head>
-<body class="antialiased overflow-x-hidden bg-[#0b0f17] text-gray-200">
+<body class="antialiased overflow-x-hidden bg-[#FFFDF5] text-[#1E293B]">
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 shadow-lg" id="navbar">
-        <div class="glass-panel border-b border-gray-800">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <a href="index.html" class="font-mono font-bold text-xl tracking-tighter text-neon-cyan hover:text-white transition-colors">
-                        &lt;NITOL/&gt;
-                    </a>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-8">
-                            <a href="index.html#home" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                            <a href="index.html#about" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
-                            <a href="projects.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                            <a href="certifications.html" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Certifications</a>
-                            <a href="index.html#services" class="hover:text-neon-cyan transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
-                            <a href="index.html#contact" class="px-4 py-2 border border-neon-cyan text-neon-cyan rounded hover:bg-neon-cyan hover:text-black transition-all text-sm font-medium shadow-neon-cyan">Contact</a>
-                        </div>
+    <!-- Playful Top Navbar -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 px-4 py-3" id="navbar">
+        <div class="max-w-7xl mx-auto bg-white border-2 border-[#1E293B] rounded-full shadow-[4px_4px_0px_0px_#1E293B] px-6 py-2">
+            <div class="flex items-center justify-between h-12">
+                <a href="index.html" class="font-heading font-extrabold text-2xl tracking-tight text-[#8B5CF6] hover:scale-105 transition-transform flex items-center gap-1">
+                    <span class="w-3 h-3 rounded-full bg-[#F472B6] border-2 border-[#1E293B] inline-block"></span>
+                    &lt;NITOL/&gt;
+                </a>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-6">
+                        <a href="index.html#home" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Home</a>
+                        <a href="index.html#about" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">About</a>
+                        <a href="projects.html" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Projects</a>
+                        <a href="certifications.html" class="text-[#8B5CF6] bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Certifications</a>
+                        <a href="index.html#services" class="hover:text-[#8B5CF6] hover:bg-[#F1F5F9] px-3 py-1.5 rounded-full text-sm font-bold transition-all">Services</a>
+                        <a href="index.html#contact" class="btn-candy px-5 py-1.5 text-xs">Contact Me</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Sticky Admin Active Bar -->
+    <div id="admin-bar" class="fixed w-full z-40 top-20 bg-[#FBBF24] border-y-2 border-[#1E293B] px-4 py-2.5 hidden shadow-[0_4px_0_0_#1E293B] transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#34D399] border-2 border-[#1E293B] animate-pulse"></span>
+                <span class="text-xs font-mono font-bold text-[#1E293B] tracking-widest uppercase">Admin Active</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <button onclick="openCertificationForm()" class="px-3 py-1.5 bg-[#8B5CF6] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#7C3AED] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add Certification
+                </button>
+                <button onclick="exportProjectsJSON()" class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Export JSON Data
+                </button>
+                <button onclick="triggerImportJSON()" class="px-3 py-1.5 bg-white text-[#1E293B] rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-[#F1F5F9] transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="upload" class="w-3.5 h-3.5"></i> Import JSON
+                </button>
+                <input type="file" id="import-json-file" accept=".json" class="hidden">
+                <button onclick="disableAdminMode()" class="px-3 py-1.5 bg-[#EF4444] text-white rounded-full border-2 border-[#1E293B] text-xs font-bold hover:bg-red-600 transition-colors flex items-center gap-1.5 shadow-[2px_2px_0px_0px_#1E293B]">
+                    <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
     <section class="pt-32 pb-12 text-center px-4">
-        <h1 class="text-3xl md:text-5xl font-bold text-white mb-4">Certifications & Achievements</h1>
-        <p class="text-gray-400 max-w-2xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-heading font-extrabold text-[#1E293B] mb-4">Certifications & Achievements</h1>
+        <p class="text-[#64748B] max-w-2xl mx-auto font-medium">
             Professional credentials and technical milestones.
         </p>
     </section>
 
+    <!-- Certifications List Grid -->
     <section class="pb-20 px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
             
-            <div class="space-y-8 border-l-2 border-gray-800 ml-3 pl-8 relative">
-                
-                <div class="relative reveal active">
-                    <span class="absolute -left-[41px] top-6 bg-dark-bg border-2 border-neon-cyan w-6 h-6 rounded-full flex items-center justify-center">
-                        <div class="w-2 h-2 bg-neon-cyan rounded-full animate-pulse"></div>
-                    </span>
-                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-cyan/50 transition-colors group">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-white group-hover:text-neon-cyan transition-colors">Advanced IoT System Design</h3>
-                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2024</span>
-                        </div>
-                        <div class="text-neon-cyan text-sm mb-3">Coursera / University of California</div>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Comprehensive course on designing IoT architecture, sensor integration, and cloud data processing using ESP32.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors">
-                            <i data-lucide="external-link" class="w-3 h-3 mr-1"></i> Verify Credential
-                        </a>
-                    </div>
-                </div>
-
-                <div class="relative reveal">
-                    <span class="absolute -left-[41px] top-6 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
-                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-purple/50 transition-colors group">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-white group-hover:text-neon-purple transition-colors">C++ Programming for Robotics</h3>
-                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2023</span>
-                        </div>
-                        <div class="text-neon-purple text-sm mb-3">Udemy Academy</div>
-                        <p class="text-gray-400 text-sm mb-4">
-                            Focused on memory management, pointers, and object-oriented programming specifically for embedded systems.
-                        </p>
-                        <a href="#" class="inline-flex items-center text-xs text-gray-500 hover:text-white transition-colors">
-                            <i data-lucide="external-link" class="w-3 h-3 mr-1"></i> Verify Credential
-                        </a>
-                    </div>
-                </div>
-
-                <div class="relative reveal">
-                    <span class="absolute -left-[41px] top-6 bg-gray-800 border-2 border-gray-600 w-6 h-6 rounded-full"></span>
-                    <div class="glass-panel p-6 rounded-lg border border-gray-800 hover:border-neon-green/50 transition-colors group">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold text-white group-hover:text-neon-green transition-colors">Arduino Fundamentals</h3>
-                            <span class="text-xs font-mono text-gray-500 border border-gray-700 px-2 py-1 rounded">2022</span>
-                        </div>
-                        <div class="text-neon-green text-sm mb-3">Arduino Official</div>
-                        <p class="text-gray-400 text-sm">
-                            Mastered digital I/O, PWM, and serial communication protocols.
-                        </p>
-                    </div>
-                </div>
-
+            <div id="certifications-list" class="space-y-8 border-l-4 border-[#1E293B] ml-4 pl-8 relative">
+                <!-- Certifications timeline items dynamically generated -->
             </div>
+            
         </div>
     </section>
 
-    <footer class="py-6 bg-dark-bg border-t border-gray-800 text-center">
-        <p class="text-gray-600 text-sm">© <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol.</p>
+    <!-- Admin Login Modal -->
+    <div id="admin-login-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeAdminLogin()"></div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-md">
+                <div class="bg-[#FBBF24] px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6 text-[#1E293B] flex items-center gap-2">
+                        <i data-lucide="lock" class="w-5 h-5"></i> Admin Access
+                    </h3>
+                    <button onclick="closeAdminLogin()" class="text-[#1E293B] hover:bg-white/50 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label class="block text-xs font-heading font-extrabold uppercase text-[#1E293B] mb-2">Enter Admin Password</label>
+                        <input type="password" id="admin-password" placeholder="••••••••" class="w-full admin-input">
+                    </div>
+                </div>
+                <div class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="verifyAdminPassword()" class="btn-candy px-6 py-2 text-sm">
+                        Verify
+                    </button>
+                    <button type="button" onclick="closeAdminLogin()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certification Form Modal (Add / Edit) -->
+    <div id="certification-form-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-[#1E293B]/70 transition-opacity backdrop-blur-sm" onclick="closeCertificationForm()"></div>
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-white border-2 border-[#1E293B] text-left shadow-[8px_8px_0px_0px_#1E293B] transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-[#8B5CF6] text-white px-4 py-3 sm:px-6 flex justify-between items-center border-b-2 border-[#1E293B]">
+                    <h3 class="text-lg font-heading font-extrabold leading-6" id="cert-form-title">Add New Certification</h3>
+                    <button onclick="closeCertificationForm()" class="text-white hover:bg-white/20 p-1 rounded-full transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+                <div class="p-6 space-y-4">
+                    <input type="hidden" id="form-cert-id">
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">CERTIFICATION TITLE *</label>
+                        <input type="text" id="form-cert-title" placeholder="e.g. Arduino Fundamentals" class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">ISSUER *</label>
+                        <input type="text" id="form-cert-issuer" placeholder="e.g. Arduino Official" class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">YEAR *</label>
+                        <input type="text" id="form-cert-year" placeholder="e.g. 2024" class="w-full admin-input">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">DESCRIPTION</label>
+                        <textarea id="form-cert-desc" rows="3" placeholder="Summary of certification content..." class="w-full admin-input"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono font-bold text-[#1E293B] mb-1">VERIFICATION URL</label>
+                        <input type="text" id="form-cert-url" placeholder="https://..." class="w-full admin-input">
+                    </div>
+                </div>
+
+                <div class="bg-[#F8FAFC] px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t-2 border-[#1E293B] gap-2">
+                    <button type="button" onclick="saveCertificationForm()" class="btn-candy px-6 py-2 text-sm">
+                        Save Certification
+                    </button>
+                    <button type="button" onclick="closeCertificationForm()" class="btn-secondary-pop px-4 py-2 text-sm">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-white border-t-2 border-[#1E293B] text-center space-y-4">
+        <p class="text-[#64748B] text-sm font-medium">© <script>document.write(new Date().getFullYear())</script> Nafis Islam Nitol. All rights reserved.</p>
+        <div>
+            <button onclick="openAdminLogin()" class="text-xs text-[#64748B] hover:text-[#8B5CF6] transition-all flex items-center gap-1 mx-auto font-mono font-bold">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Portal
+            </button>
+        </div>
     </footer>
 
     <script src="script.js"></script>
