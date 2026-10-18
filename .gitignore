@@ -55,3 +55,7 @@ next-env.d.ts
 .impeccable/review/
 .impeccable/build/
 !.env.example
+
+# Personal documents with private details (phone, date of birth): never commit
+CV_.pdf
+/public/cv/

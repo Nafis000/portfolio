@@ -49,7 +49,6 @@ const PORTRAIT = {
   src: "/images/nafis-portrait.webp",
   alt: "Nafis Islam Nitol standing in front of a wall of climbing plants",
 };
-const CV_URL = "/cv/nafis-islam-nitol-cv.pdf";
 
 const opt = (v: string | null) => v ?? undefined;
 
@@ -101,7 +100,7 @@ export async function getProfile(): Promise<Profile> {
     location: row.location,
     email: row.public_email,
     githubUrl: github?.url ?? null,
-    cvUrl: cv ? publicUrl(cv.path) : CV_URL,
+    cvUrl: cv ? publicUrl(cv.path) : null, // set in the CMS (Profile -> CV file); hidden until then
     portrait: portrait ? { src: publicUrl(portrait.path), alt: portrait.alt || PORTRAIT.alt } : PORTRAIT,
     languages: row.languages,
   };

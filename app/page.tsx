@@ -80,12 +80,14 @@ export default async function Home() {
               >
                 Explore projects
               </Link>
-              <a
-                href={profile.cvUrl}
-                className="border border-chalk/60 px-6 py-3.5 font-display text-lg font-semibold uppercase tracking-[0.08em] text-chalk transition-colors hover:border-chalk hover:bg-chalk/10"
-              >
-                View CV <span className="font-sans text-sm font-normal normal-case tracking-normal text-chalk-dim">(PDF)</span>
-              </a>
+              {profile.cvUrl && (
+                <a
+                  href={profile.cvUrl}
+                  className="border border-chalk/60 px-6 py-3.5 font-display text-lg font-semibold uppercase tracking-[0.08em] text-chalk transition-colors hover:border-chalk hover:bg-chalk/10"
+                >
+                  View CV <span className="font-sans text-sm font-normal normal-case tracking-normal text-chalk-dim">(PDF)</span>
+                </a>
+              )}
             </div>
           </div>
           <div className="-mx-4 flex justify-center sm:mx-0 lg:justify-end">
@@ -292,11 +294,13 @@ export default async function Home() {
                   </a>
                 </li>
               )}
-              <li>
-                <a href={profile.cvUrl} className="underline-offset-[0.2em] hover:underline">
-                  CV (PDF)
-                </a>
-              </li>
+              {profile.cvUrl && (
+                <li>
+                  <a href={profile.cvUrl} className="underline-offset-[0.2em] hover:underline">
+                    CV (PDF)
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
           <div className="lg:col-span-7 lg:pt-3">

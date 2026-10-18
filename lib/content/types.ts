@@ -85,7 +85,7 @@ export type Profile = {
   location: string | null;
   email: string | null;
   githubUrl: string | null;
-  cvUrl: string;
+  cvUrl: string | null;
   portrait: { src: string; alt: string };
   languages: string | null;
 };
