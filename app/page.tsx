@@ -234,7 +234,7 @@ export default async function Home() {
       </section>
 
       {/* ───────── Contact ───────── */}
-      <section id="contact" aria-labelledby="contact-title" className="scroll-mt-16 bg-copper text-ink">
+      <section id="contact" aria-labelledby="contact-title" className="relative scroll-mt-16 bg-copper text-ink">
         <div className="mx-auto max-w-[1440px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
           <h2 id="contact-title" className="max-w-[16ch] text-[clamp(3rem,7vw,6rem)] font-bold uppercase leading-[0.9]">
             Building something? Let&rsquo;s talk.
@@ -257,6 +257,14 @@ export default async function Home() {
             </a>
           </div>
         </div>
+        {/* Discreet admin entry. A design detail only: the admin area enforces auth on the server. */}
+        <Link
+          href="/admin/login"
+          aria-label="Administrator sign in"
+          className="group absolute bottom-3 left-1/2 grid size-6 -translate-x-1/2 place-items-center rounded-full"
+        >
+          <span className="size-2 rounded-full bg-[#2f9e5a] transition-transform group-hover:scale-150" />
+        </Link>
       </section>
     </>
   );

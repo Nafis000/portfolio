@@ -6,12 +6,29 @@ The build brief is `website-arcitecture.md`, a staged plan for Next.js and Supab
 
 ## Status
 
-The build is staged. **Stages 1–2 are done:** the Next.js scaffold, the design system, the home page, and the Projects index and detail pages. Not built yet:
-- the Supabase schema and RLS
-- admin auth and the CMS (including the hidden green-dot entry)
-- the working contact form (the email link is the only contact for now)
+The build is staged. **Stages 1–3 are done:**
+- the Next.js scaffold, the design system, the home page, and the Projects index and detail pages
+- the Supabase schema, RLS, storage and admin auth
+
+Not built yet:
+- the public pages still read `lib/content/seed.ts`; switching them to Supabase reads is Stage 4
+- the CMS editing UI (Stage 5)
+- the working contact form (the table and policies exist, the UI doesn't)
 - the cat companion and the 3D scenes
-- separate Education, Experience, Activities and Certifications pages (the home page links to its own chapters for now)
+- separate Education, Experience, Activities and Certifications pages
+
+## Database (Supabase)
+
+- Project "Nafis000's Project", ref `nbxouypyzocfbufpfvow`, region eu-west-1. Client config lives in `.env.local` (copy `.env.example`; publishable key only, never a secret key).
+- Migrations are in `supabase/migrations/`, named with the applied version. Add new ones as migrations, and never edit the database by hand without a matching file.
+- Access model:
+  - Admins are rows in `private.admins`. That schema isn't exposed through the API.
+  - `private.is_admin()` checks the caller; `public.current_user_is_admin()` is the RPC the app calls.
+  - Visitors read only rows with `published = true`, and only admins write.
+  - Storage bucket `media` is public-read, and only admins can upload.
+  - Anyone may insert into `contact_messages`, with column checks validating each insert, and only admins can read it.
+- The admin area is `/admin`. `proxy.ts` refreshes sessions on `/admin/*` only, and every page and action re-checks with `requireAdmin()` (`lib/security/admin.ts`). The green dot at the bottom of the home page is decoration, not security.
+- `public.checklist_items` belongs to something else in the same project. Leave it alone.
 
 ## Stack
 
@@ -19,7 +36,6 @@ The build is staged. **Stages 1–2 are done:** the Next.js scaffold, the design
 - This Next.js has breaking changes compared with older versions: read `node_modules/next/dist/docs/` before using an API (see `AGENTS.md`). A route that reads `params` must sit under `<Suspense>` or prerender through `generateStaticParams`.
 - Fonts come through `next/font/google`: Barlow Semi Condensed (display), Source Sans 3 (body), Kalam (hand annotations only) and JetBrains Mono (values only).
 - Commands: `npm run dev` (port 3000, also in `.claude/launch.json`), `npm run build`, `npm run lint`, `npx tsc --noEmit`.
-- Supabase project (for Stage 3): "Nafis000's Project", ref `nbxouypyzocfbufpfvow`, region eu-west-1. It's still empty.
 
 ## Layout
 

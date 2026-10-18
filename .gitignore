@@ -54,3 +54,4 @@ next-env.d.ts
 # Impeccable review captures and build state (regenerated)
 .impeccable/review/
 .impeccable/build/
+!.env.example
